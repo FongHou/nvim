@@ -91,11 +91,11 @@ telescope.setup({
     scroll_strategy = "cycle",
     selection_strategy = "reset",
     sorting_strategy = "descending",
-    layout_strategy = "vertical",
+    layout_strategy = "flex",
     layout_config = {
       width = 0.95,
       height = 0.85,
-      -- preview_cutoff = 120,
+      preview_cutoff = 20,
       prompt_position = "top",
       horizontal = {
         preview_width = function(_, cols, _)
@@ -125,3 +125,4 @@ telescope.load_extension("file_browser")
 telescope.load_extension("packer")
 telescope.load_extension("ui-select")
 telescope.load_extension("make")
+telescope.load_extension("fzf")

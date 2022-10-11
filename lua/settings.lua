@@ -22,7 +22,7 @@ M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- enable PackerSync on plugins.lua save
 M.packer_auto_sync = false
 -- set cmdheight
-M.cmdheight = 0
+M.cmdheight = 1
 -- Disable integration of Neovim's statusline in your Tmux status
 -- See https://github.com/vimpostor/vim-tpipeline#installation
 M.disable_tmux_statusline_integration = true
@@ -42,6 +42,9 @@ M.disable_dashboard_quick_links = false
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
   "bash",
+  "clojure",
+  "fennel",
+  "c",
   "cmake",
   "css",
   "dockerfile",
@@ -50,6 +53,7 @@ M.treesitter_ensure_installed = {
   "html",
   "java",
   "javascript",
+  "typescript",
   "json",
   "kotlin",
   "latex",
