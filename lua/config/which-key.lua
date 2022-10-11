@@ -113,6 +113,7 @@ wk.register({
     s = { "<cmd>w<cr>", "Save Buffer" },
     z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
   },
+  g = { "Git" },
   m = {
     name = "Misc",
     c = { "<cmd>lua require('utils').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
