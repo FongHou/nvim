@@ -6,6 +6,7 @@ local expr_options = { expr = true, silent = true }
 --Remap space as leader key
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 --Remap for dealing with visual line wraps
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)

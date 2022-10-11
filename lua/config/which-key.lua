@@ -113,6 +113,7 @@ wk.register({
     s = { "<cmd>w<cr>", "Save Buffer" },
     z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
   },
+  d = { "Debug" },
   g = { "Git" },
   m = {
     name = "Misc",

@@ -47,6 +47,7 @@ packer.startup(function(use)
     config = get_config("telescope"),
   })
 
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "jvgrootveld/telescope-zoxide" })
   use({ "crispgm/telescope-heading.nvim" })
   use({ "nvim-telescope/telescope-symbols.nvim" })
@@ -72,7 +73,7 @@ packer.startup(function(use)
     config = get_config("neotree"),
   })
 
-  use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
+  use({ "christoomey/vim-tmux-navigator", config = get_config("tmux-navigator") })
 
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
@@ -175,6 +176,11 @@ packer.startup(function(use)
   use({
     "akinsho/nvim-toggleterm.lua",
     config = get_config("toggleterm"),
+  })
+
+  use({
+    "mtikekar/nvim-send-to-term",
+    config = get_config("send-to-term"),
   })
 
   -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
@@ -332,6 +338,10 @@ packer.startup(function(use)
     "ironhouzi/starlite-nvim",
     config = get_config("starlite-nvim"),
   })
+
+  use({ "Olical/conjure", config = get_config("conjure") })
+  use({ "PaterJason/cmp-conjure" })
+  use({ "mg979/vim-visual-multi" })
 end)
 
 -- TODO:
