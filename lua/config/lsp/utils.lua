@@ -46,6 +46,11 @@ function M.custom_lsp_attach(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
   end
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_incoming_calls<cr>", bufopts)
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
   local wk = require("which-key")
   local default_options = { silent = true }
   wk.register({
