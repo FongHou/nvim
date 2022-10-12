@@ -20,3 +20,9 @@ map(
   ":Repl !pytest --trace --pdb --pdbcls=IPython.terminal.debugger:TerminalPdb <C-r>=expand('%:p')<CR>::<C-r>=expand('<cword>')<CR><CR>",
   default_options
 )
+vim.api.nvim_create_user_command("Repl", ":call g:send_target.send(['<args>'])", { nargs = 1 })
+
+local options = { noremap = true, silent = true, desc = "Send to Repl" }
+
+map("n", ",,", "<Plug>SendLine", options)
+map("v", ",,", "<Plug>Send", options)
