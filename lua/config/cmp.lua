@@ -10,13 +10,13 @@ cmp.setup({
       mode = "symbol",
       menu = {
         buffer = "BUF",
-        rg = "RG",
         nvim_lsp = "LSP",
         conjure = "CONJ",
         path = "PATH",
         luasnip = "SNIP",
         calc = "CALC",
         tags = "TAG",
+        rg = "RG",
       },
       before = function(entry, vim_item)
         vim_item.dup = ({
@@ -54,7 +54,6 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = {
-    { name = "conjure" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
     { name = "conjure" },

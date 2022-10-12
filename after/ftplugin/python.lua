@@ -1,3 +1,10 @@
+local vo = vim.opt_local
+vo.tabstop = 4
+vo.shiftwidth = 4
+vo.softtabstop = 4
+
+require("config.dap").setup()
+
 local function options(desc)
   return { buffer = true, noremap = true, silent = true, desc = desc }
 end
@@ -13,10 +20,3 @@ map(
   ":Repl !pytest --trace --pdb --pdbcls=IPython.terminal.debugger:TerminalPdb <C-r>=expand('%:p')<CR>::<C-r>=expand('<cword>')<CR><CR>",
   options("pytest debug test")
 )
-
-local vo = vim.opt_local
-vo.tabstop = 4
-vo.shiftwidth = 4
-vo.softtabstop = 4
-
-require("config.dap").setup()
