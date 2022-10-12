@@ -1,4 +1,4 @@
-local settings = require("user-conf")
+local settings = require("settings")
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -129,8 +129,6 @@ packer.startup(function(use)
     config = get_config("git.neogit"),
   })
 
-  use({ "f-person/git-blame.nvim", config = get_config("git.git-blame") })
-
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
@@ -186,7 +184,6 @@ packer.startup(function(use)
   -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
   use({
     "folke/todo-comments.nvim",
-    cmd = "TodoQuickFix",
     requires = "nvim-lua/plenary.nvim",
     config = get_config("todo"),
   })
@@ -322,6 +319,7 @@ packer.startup(function(use)
 
   use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("urlview") })
 
+  use({ "famiu/bufdelete.nvim" })
   -- use({
   --   "folke/noice.nvim",
   --   event = "VimEnter",

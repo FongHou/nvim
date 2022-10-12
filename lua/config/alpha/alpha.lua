@@ -1,5 +1,5 @@
 -- adopted from https://github.com/AdamWhittingham/vim-config/blob/nvim/lua/config/startup_screen.lua
-local settings = require("user-conf")
+local settings = require("settings")
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
   return
@@ -150,7 +150,7 @@ local buttons = {
   type = "group",
   val = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-    dashboard.button("f", "  Find File", ":" .. require("functions").telescope_find_files() .. "<CR>"),
+    dashboard.button("f", "  Find File", ":" .. require("utils").telescope_find_files() .. "<CR>"),
     dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
     dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
     dashboard.button("p", "  Search Projects", ":Telescope projects<CR>"),

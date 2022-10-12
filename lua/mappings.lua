@@ -36,5 +36,5 @@ map("x", "J", ":move '>+1<CR>gv-gv", default_options)
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-  return require("functions").escapePair()
+  return require("utils").escapePair()
 end, default_options)
