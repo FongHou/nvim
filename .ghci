@@ -1,0 +1,63 @@
+:seti -XNoImplicitPrelude
+:m + Prelude
+:set prompt-function \modules _ -> pure (mconcat [case modules of topmost:_ -> topmost; [] -> "", " \ESC[0;36mλ> \ESC[m"] )
+:set prompt-cont "\ESC[0;36m|  \ESC[m"
+:def hoogle \x -> pure (mconcat [":!hoogle --count=20 \"", x , "\""])
+:def hdoc   \x -> pure (mconcat [":!hoogle --info \"", x, "\""])
+:set -package pretty-simple
+:def pp   \_ -> pure (":set -interactive-print Text.Pretty.Simple.pPrint")
+:def nopp \_ -> pure (":set -interactive-print System.IO.print")
+:m - Prelude
+
+:set -Wall
+:set -Wcompat
+:set -Widentities
+:set -Wincomplete-record-updates
+:set -Wincomplete-uni-patterns
+:set -Wpartial-fields
+
+:seti -Wno-type-defaults
+:set -Wno-missing-export-lists
+:set -Wno-missing-home-modules
+:set -Wno-unticked-promoted-constructors
+:set -Wno-unused-imports
+
+:set -fhide-source-paths
+:set -freverse-errors
+:set -fmax-relevant-binds=0
+:set -funclutter-valid-hole-fits
+
+:set -XBangPatterns
+:set -XBinaryLiterals
+:set -XBlockArguments
+:set -XConstraintKinds
+:set -XDeriveDataTypeable
+:set -XDeriveFoldable
+:set -XDeriveFunctor
+:set -XDeriveGeneric
+:set -XDeriveLift
+:set -XDeriveTraversable
+:set -XDerivingVia
+:set -XEmptyDataDecls
+:set -XFlexibleContexts
+:set -XFlexibleInstances
+:set -XFunctionalDependencies
+:set -XGeneralizedNewtypeDeriving
+:set -XInstanceSigs
+:set -XKindSignatures
+:set -XLambdaCase
+:set -XMultiParamTypeClasses
+:set -XMultiWayIf
+:set -XNamedFieldPuns
+:set -XNamedWildCards
+:set -XNumericUnderscores
+:set -XPartialTypeSignatures
+:set -XRankNTypes
+:set -XPostfixOperators
+:set -XRecordWildCards
+:set -XScopedTypeVariables
+:set -XStandaloneDeriving
+:set -XStandaloneKindSignatures
+:set -XTupleSections
+:set -XTypeApplications
+:set -XTypeOperators

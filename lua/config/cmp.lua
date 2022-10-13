@@ -16,6 +16,7 @@ cmp.setup({
         path = "PATH",
         luasnip = "SNIP",
         calc = "CALC",
+        tags = "TAG",
       },
       before = function(entry, vim_item)
         vim_item.dup = ({
@@ -61,6 +62,7 @@ cmp.setup({
     { name = "calc" },
     { name = "path" },
     { name = "rg", keyword_length = 5 },
+    { name = "tags" },
   },
 })
 

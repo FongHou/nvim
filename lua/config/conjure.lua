@@ -9,13 +9,19 @@ vim.g["conjure#mapping#doc_word"] = "vd"
 
 local wk = require("which-key")
 local default_options = { silent = true }
-wk.register({
-  c = { "connect" },
-  e = { "eval" },
-  g = { "goto" },
-  l = { "log" },
-  r = { "repl" },
-  s = { "session" },
-  t = { "test" },
-  v = { "view" },
-}, { prefix = "<localleader>", mode = "n", default_options })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "clojure", "fennel", "lua", "python" },
+  callback = function()
+    wk.register({
+      c = { "connect" },
+      e = { "eval" },
+      g = { "goto" },
+      l = { "log" },
+      r = { "repl" },
+      s = { "session" },
+      t = { "test" },
+      v = { "view" },
+    }, { prefix = "<localleader>", mode = "n", default_options })
+  end,
+})
