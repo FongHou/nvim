@@ -10,6 +10,7 @@ cmp.setup({
       mode = "symbol",
       menu = {
         buffer = "BUF",
+        rg = "RG",
         nvim_lsp = "LSP",
         conjure = "CONJ",
         path = "PATH",
