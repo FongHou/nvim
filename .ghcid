@@ -1,0 +1,1 @@
+--clear --no-height-limit -o ghcid.log -a -c cabal repl

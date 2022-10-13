@@ -47,11 +47,11 @@ packer.startup(function(use)
     config = get_config("telescope"),
   })
 
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "jvgrootveld/telescope-zoxide" })
   use({ "crispgm/telescope-heading.nvim" })
   use({ "nvim-telescope/telescope-symbols.nvim" })
   use({ "nvim-telescope/telescope-file-browser.nvim" })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope-packer.nvim" })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
   use({ "ptethng/telescope-makefile" })
@@ -99,6 +99,7 @@ packer.startup(function(use)
       "hrsh7th/cmp-calc",
       "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-nvim-lsp-signature-help",
+      "delphinus/cmp-ctags",
     },
     config = get_config("cmp"),
   })
@@ -338,8 +339,11 @@ packer.startup(function(use)
   })
 
   use({ "Olical/conjure", config = get_config("conjure") })
+  use({ "FongHou/fzf-hoogle.vim", ft = "haskell" })
   use({ "PaterJason/cmp-conjure" })
   use({ "mg979/vim-visual-multi" })
+  use({ "junegunn/fzf" })
+  use({ "preservim/tagbar", cmd = "TagbarToggle" })
 end)
 
 -- TODO:

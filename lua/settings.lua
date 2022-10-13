@@ -49,6 +49,7 @@ M.treesitter_ensure_installed = {
   "css",
   "dockerfile",
   "go",
+  "haskell",
   "hcl",
   "html",
   "java",

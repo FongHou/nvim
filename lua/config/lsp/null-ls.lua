@@ -18,6 +18,7 @@ nls.setup({
     nls.builtins.code_actions.shellcheck,
     nls.builtins.diagnostics.vale,
     nls.builtins.code_actions.gitsigns,
+    require("config.haskell").ghcid,
   },
   on_attach = function(client, bufnr)
     local wk = require("which-key")
