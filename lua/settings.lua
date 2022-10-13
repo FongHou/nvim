@@ -2,7 +2,7 @@ local M = {}
 
 -- theme: nightfox, tokyonight, tundra; default is catppuccin
 -- refer to the themes settings file for different styles
-M.theme = ""
+M.theme = "tundra"
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
@@ -25,7 +25,7 @@ M.packer_auto_sync = false
 M.cmdheight = 1
 -- Disable integration of Neovim's statusline in your Tmux status
 -- See https://github.com/vimpostor/vim-tpipeline#installation
-M.disable_tmux_statusline_integration = true
+M.disable_tmux_statusline_integration = false
 -- Disable https://github.com/norcalli/nvim-colorizer.lua
 -- due to causing lags with live_grep in some circumstances
 M.disable_colorizer = false
