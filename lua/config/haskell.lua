@@ -39,7 +39,7 @@ M.ghcid = {
         row = row,
         end_row = end_row,
         col = col,
-        end_col = end_col or col,
+        end_col = end_col,
         severity = h.diagnostics.severities[severity],
         message = message,
       }
