@@ -73,8 +73,6 @@ packer.startup(function(use)
     config = get_config("neotree"),
   })
 
-  use({ "christoomey/vim-tmux-navigator", config = get_config("tmux-navigator") })
-
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
   use({
@@ -339,12 +337,13 @@ packer.startup(function(use)
   })
 
   use({ "Olical/conjure", config = get_config("conjure") })
-  use({ "FongHou/fzf-hoogle.vim", ft = "haskell" })
-  use({ "PaterJason/cmp-conjure" })
-  use({ "mg979/vim-visual-multi" })
-  use({ "junegunn/fzf" })
-  use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
+  use({ "PaterJason/cmp-conjure" })
+  use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
+  use({ "junegunn/fzf" })
+  use({ "mg979/vim-visual-multi" })
+  use({ "preservim/tagbar", cmd = "TagbarToggle" })
+  use({ "christoomey/vim-tmux-navigator", config = get_config("tmux-navigator") })
 end)
 
 -- TODO:
