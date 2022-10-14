@@ -63,7 +63,6 @@ cmp.setup({
     { name = "calc" },
     { name = "path" },
     { name = "rg", keyword_length = 5 },
-    { name = "tags" },
   },
 })
 
