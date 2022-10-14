@@ -17,7 +17,6 @@ cmp.setup({
         luasnip = "SNIP",
         calc = "CALC",
         tags = "TAG",
-        rg = "RG",
       },
       before = function(entry, vim_item)
         vim_item.dup = ({
