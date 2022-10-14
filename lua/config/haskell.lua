@@ -26,10 +26,18 @@ M.ghcid = {
       local filename, row, end_row, col, end_col, severity, message =
         line:match("([^:]+):%(?(%d+)[)(-]?(%d*)%)?:%(?(%d+)[)(-]?(%d*)%)?:%s*(%w+):(.*)")
 
+      if end_row == nil or end_row == "" then
+        end_row = row
+      end
+
+      if end_col == nil or end_col == "" then
+        end_col = col
+      end
+
       return {
         filename = filename,
         row = row,
-        -- end_row = end_row or row,
+        end_row = end_row,
         col = col,
         end_col = end_col or col,
         severity = h.diagnostics.severities[severity],

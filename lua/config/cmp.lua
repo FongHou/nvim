@@ -59,10 +59,10 @@ cmp.setup({
     { name = "conjure" },
     { name = "buffer", keyword_length = 5 },
     { name = "luasnip" },
+    { name = "tags" },
     { name = "calc" },
     { name = "path" },
     { name = "rg", keyword_length = 5 },
-    { name = "tags" },
   },
 })
 

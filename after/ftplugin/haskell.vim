@@ -32,6 +32,11 @@ wk.register(keys, {mode = "v", prefix = "<localleader>", silent = true})
 
 WKMAP
 
+let g:hoogle_open_link = 'edge'
+let g:hoogle_fzf_preview = 'down:40%:wrap'
+let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
+
+" cabal install hlint apply-refact
 command! -nargs=0 Hlint :call <SID>ApplyHlint()
 function! s:ApplyHlint()
   let l = line(".")
@@ -42,16 +47,14 @@ function! s:ApplyHlint()
   call cursor(l, c)
 endfunction
 
+" cabal install ghc-tags
 setlocal tags+=../tags;,~/.hackage/*/tags
 augroup Haskell
   autocmd!
   au BufWritePost *.hs  silent !ghc-tags -c
 augroup END
 
-let g:hoogle_open_link = 'edge'
-let g:hoogle_fzf_preview = 'down:40%:wrap'
-let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
-
+" cabal install hasktags
 let g:tagbar_width = max([40, winwidth(0) / 4])
 let g:tagbar_type_haskell = {
     \ 'ctagsbin'    : 'hasktags',

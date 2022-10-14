@@ -99,7 +99,7 @@ packer.startup(function(use)
       "hrsh7th/cmp-calc",
       "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-nvim-lsp-signature-help",
-      "delphinus/cmp-ctags",
+      { "quangnguyen30192/cmp-nvim-tags", ft = "haskell" },
     },
     config = get_config("cmp"),
   })
