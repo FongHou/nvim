@@ -344,6 +344,7 @@ packer.startup(function(use)
   use({ "mg979/vim-visual-multi" })
   use({ "junegunn/fzf" })
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
+  use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
 end)
 
 -- TODO:
