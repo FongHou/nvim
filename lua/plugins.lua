@@ -47,6 +47,7 @@ packer.startup(function(use)
     config = get_config("telescope"),
   })
 
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "jvgrootveld/telescope-zoxide" })
   use({ "crispgm/telescope-heading.nvim" })
   use({ "nvim-telescope/telescope-symbols.nvim" })
