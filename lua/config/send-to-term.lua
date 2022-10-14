@@ -6,7 +6,7 @@ vim.g.send_multiline = {
 local map = vim.keymap.set
 local options = { noremap = true, silent = true, desc = "Send to Repl" }
 
-map("n", ",,", "<Plug>SendLine", options)
-map("v", ",,", "<Plug>Send", options)
+map("n", ",;", "<Plug>SendLine", options)
+map("v", ",;", "<Plug>Send", options)
 
 vim.api.nvim_create_user_command("Repl", ":call g:send_target.send(['<args>'])", { nargs = 1 })
