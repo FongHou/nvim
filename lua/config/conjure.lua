@@ -8,7 +8,6 @@ vim.g["conjure#mapping#eval_visual"] = ","
 vim.g["conjure#mapping#doc_word"] = "vd"
 
 local wk = require("which-key")
-local default_options = { silent = true }
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "clojure", "fennel", "lua", "python" },
@@ -22,6 +21,6 @@ vim.api.nvim_create_autocmd("FileType", {
       s = { "session" },
       t = { "test" },
       v = { "view" },
-    }, { prefix = "<localleader>", mode = "n", default_options })
+    }, { prefix = "<localleader>", mode = "n", silent = true })
   end,
 })
