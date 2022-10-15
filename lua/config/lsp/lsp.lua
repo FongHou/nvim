@@ -26,6 +26,9 @@ local servers = {
 }
 
 local function tsserver_pattern(lsp)
+  if lsp == "denols" then
+    return nvim_lsp.util.root_pattern({ "deno.json", "deno.jsonc" })
+  end
   if lsp == "tsserver" then
     return nvim_lsp.util.root_pattern("tsconfig.json")
   end
