@@ -25,7 +25,7 @@ local servers = {
   "yamlls",
 }
 
-local function tsserver_pattern(lsp)
+local function root_pattern(lsp)
   if lsp == "denols" then
     return nvim_lsp.util.root_pattern({ "deno.json", "deno.jsonc" })
   end
@@ -44,7 +44,7 @@ for _, lsp in ipairs(servers) do
         config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
       end
     end,
-    root_dir = tsserver_pattern(lsp),
+    root_dir = root_pattern(lsp),
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
     settings = {
