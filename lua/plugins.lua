@@ -339,11 +339,12 @@ packer.startup(function(use)
   use({ "Olical/conjure", config = get_config("conjure") })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
   use({ "PaterJason/cmp-conjure" })
+  use({ "christoomey/vim-tmux-navigator", config = get_config("tmux") })
+  use({ "fonghou/tmuxjump.vim", config = get_config("tmux") })
   use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
   use({ "junegunn/fzf" })
   use({ "mg979/vim-visual-multi" })
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
-  use({ "christoomey/vim-tmux-navigator", config = get_config("tmux-navigator") })
 end)
 
 -- TODO:
