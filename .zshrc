@@ -326,3 +326,5 @@ export FZF_DEFAULT_OPTS="\
   --bind 'ctrl-a:select-all' \
 "
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export EDITOR=vi
