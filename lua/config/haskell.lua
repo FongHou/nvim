@@ -12,12 +12,10 @@ M.ghcid = {
     command = "bash",
     args = {
       "-c",
-      [[
-        [ -f ghcid.log ] && sleep 1 && \
-          cat ghcid.log | \
-          grep -A1 -E '.*: (error|warning):' | \
-          grep -v '\--' | \
-          sed -E ':a; $!N; s/\n\s+/ /; ta; P; D'
+      [[ sleep 1 && [ -f ghcid.log ] && cat ghcid.log \
+          | grep -A1 -E '.*: (error|warning):' \
+          | grep -v '\--' \
+          | paste -sd'\0\n' -
       ]],
     },
     format = "line",
