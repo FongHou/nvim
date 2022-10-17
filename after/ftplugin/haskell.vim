@@ -1,19 +1,3 @@
-nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><CR>
-vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>
-
-nnoremap <silent><nowait> <localleader>h   :Repl :hdoc <C-r>=expand('<cexpr>')<CR><CR>
-nnoremap <silent><nowait> <localleader>i   :Repl :info <C-r>=expand('<cexpr>')<CR><CR>
-vnoremap <silent><nowait> <localleader>i y :Repl :info <C-r>=@"<CR><CR>
-
-nnoremap <silent><nowait> <localleader>j   :Repl :instances <C-r>=expand('<cexpr>')<CR><CR>
-vnoremap <silent><nowait> <localleader>j y :Repl :instances <C-r>=@"<CR><CR>
-
-nnoremap <silent><nowait> <localleader>k   :Repl :kind <C-r>=expand('<cexpr>')<CR><CR>
-vnoremap <silent><nowait> <localleader>k y :Repl :kind! <C-r>=@"<CR><CR>
-
-nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%:p')<CR><CR>
-nnoremap <silent><nowait> <localleader>r   :Repl :reload!<CR>
-
 lua <<WKMAP
 
 local wk = require("which-key")
@@ -32,20 +16,25 @@ wk.register(keys, {mode = "v", prefix = "<localleader>", silent = true})
 
 WKMAP
 
+nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><CR>
+vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>
+
+nnoremap <silent><nowait> <localleader>h   :Repl :hdoc <C-r>=expand('<cexpr>')<CR><CR>
+nnoremap <silent><nowait> <localleader>i   :Repl :info <C-r>=expand('<cexpr>')<CR><CR>
+vnoremap <silent><nowait> <localleader>i y :Repl :info <C-r>=@"<CR><CR>
+
+nnoremap <silent><nowait> <localleader>j   :Repl :instances <C-r>=expand('<cexpr>')<CR><CR>
+vnoremap <silent><nowait> <localleader>j y :Repl :instances <C-r>=@"<CR><CR>
+
+nnoremap <silent><nowait> <localleader>k   :Repl :kind <C-r>=expand('<cexpr>')<CR><CR>
+vnoremap <silent><nowait> <localleader>k y :Repl :kind! <C-r>=@"<CR><CR>
+
+nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%:p')<CR><CR>
+nnoremap <silent><nowait> <localleader>r   :Repl :reload!<CR>
+
 let g:hoogle_open_link = 'edge'
 let g:hoogle_fzf_preview = 'down:40%:wrap'
 let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
-
-" cabal install hlint apply-refact
-command! -nargs=0 ApplyHlint :call <SID>ApplyHlint()
-function! s:ApplyHlint()
-  let l = line(".")
-  let c = col(".")
-  let l:filter = "%! hlint - --refactor  --refactor-options=\"--pos ".l.','.c."\""
-  execute l:filter
-  silent if v:shell_error == 1| undo | endif
-  call cursor(l, c)
-endfunction
 
 " cabal install ghc-tags
 setlocal tags+=../tags;,~/.hackage/tags
