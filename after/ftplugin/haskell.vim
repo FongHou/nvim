@@ -37,7 +37,7 @@ let g:hoogle_fzf_preview = 'down:40%:wrap'
 let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
 
 " cabal install hlint apply-refact
-command! -nargs=0 Hlint :call <SID>ApplyHlint()
+command! -nargs=0 ApplyHlint :call <SID>ApplyHlint()
 function! s:ApplyHlint()
   let l = line(".")
   let c = col(".")
@@ -48,7 +48,7 @@ function! s:ApplyHlint()
 endfunction
 
 " cabal install ghc-tags
-setlocal tags+=../tags;,~/.hackage/*/tags
+setlocal tags+=../tags;,~/.hackage/tags
 augroup Haskell
   autocmd!
   au BufWritePost *.hs  silent !ghc-tags -c
