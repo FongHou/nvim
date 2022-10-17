@@ -36,8 +36,11 @@ let g:hoogle_open_link = 'edge'
 let g:hoogle_fzf_preview = 'down:40%:wrap'
 let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
 
-" cabal install ghc-tags
-setlocal tags+=../tags;,~/.hackage/tags
+" cabal install fast-tags ghc-tags
+setlocal tags+=,~/.hackage/tags
+
+command HackageTags silent !find ~/.hackage -name '*.cabal' -print0 | xargs -0 fast-tags --cabal --qualified
+
 augroup Haskell
   autocmd!
   au BufWritePost *.hs  silent !ghc-tags -c
