@@ -22,7 +22,7 @@ M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- enable PackerSync on plugins.lua save
 M.packer_auto_sync = false
 -- set cmdheight
-M.cmdheight = 1
+M.cmdheight = 0
 -- Disable integration of Neovim's statusline in your Tmux status
 -- See https://github.com/vimpostor/vim-tpipeline#installation
 M.disable_tmux_statusline_integration = false
