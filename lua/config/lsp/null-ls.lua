@@ -18,6 +18,7 @@ nls.setup({
     nls.builtins.code_actions.shellcheck,
     nls.builtins.diagnostics.vale,
     nls.builtins.code_actions.gitsigns,
+    nls.builtins.formatting.cabal_fmt,
     nls.builtins.formatting.fourmolu,
     require("config.haskell").ghcid,
     require("config.haskell").hlint,
