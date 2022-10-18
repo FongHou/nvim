@@ -12,7 +12,7 @@ end
 local map = vim.keymap.set
 map("n", ",ri", ":Repl %pinfo <C-r>=expand('<cexpr>')<CR><CR>", options("ipython %info"))
 map("v", ",ri", 'y :Repl %pinfo <C-r>=@"<CR><CR>', options("ipython %info"))
-map("n", ",rx", ":Repl %run -e -i <C-r>=expand('%:p')<CR><CR>", options("ipython %run"))
+map("n", ",rr", ":Repl %run -e -i <C-r>=expand('%:p')<CR><CR>", options("ipython %run"))
 map("n", ",rt", ":Repl !pytest -v --doctest-modules <C-r>=expand('%:p')<CR><CR>", options("pytest current file"))
 map(
   "n",
