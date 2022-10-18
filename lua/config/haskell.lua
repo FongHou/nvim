@@ -59,12 +59,10 @@ M.hlint = {
   generator = h.generator_factory({
     command = "hlint",
     args = { "--json", "$FILENAME" },
-    format = "json_raw",
-    from_stderr = true,
+    format = "json",
+    check_exit_code = { 1 },
+    ignore_stderr = true,
     on_output = function(params)
-      if params.err ~= nil then
-        log:warn("hlint error: " .. params.err)
-      end
       local diagnostics = {}
       local severities = {
         Warning = 3,
