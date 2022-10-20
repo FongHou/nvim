@@ -7,7 +7,7 @@ require("which-key").setup({
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
       enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20, -- how many suggestions should be shown in the list?
+      suggestions = 10, -- how many suggestions should be shown in the list?
     },
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
@@ -23,7 +23,7 @@ require("which-key").setup({
   },
   -- add operators that will trigger motion and text object completion
   -- to enable all native operators, set the preset / operators plugin above
-  operators = { gc = "Comments" },
+  operators = {},
   key_labels = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
@@ -37,15 +37,15 @@ require("which-key").setup({
     group = "+", -- symbol prepended to a group
   },
   window = {
-    border = "single", -- none, single, double, shadow
+    border = "none", -- none, single, double, shadow
     position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    margin = { 0, 40, 3, 40 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
   },
   layout = {
-    height = { min = 4, max = 25 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 2, -- spacing between columns
+    height = { min = 3, max = 25 }, -- min and max height of the columns
+    width = { min = 10, max = 50 }, -- min and max width of the columns
+    spacing = 20, -- spacing between columns
     align = "center", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
@@ -58,6 +58,7 @@ require("which-key").setup({
     "call",
     "lua",
     "require",
+    "Plug",
     "^:",
     "^ ",
   }, -- hide mapping boilerplate
@@ -72,93 +73,3 @@ require("which-key").setup({
     v = { "j", "k" },
   },
 })
-
-local wk = require("which-key")
-local default_options = { silent = true }
-
--- register non leader based mappings
-wk.register({
-  sa = "Add surrounding",
-  sd = "Delete surrounding",
-  sh = "Highlight surrounding",
-  sn = "Surround update n lines",
-  sr = "Replace surrounding",
-  sF = "Find left surrounding",
-  sf = "Replace right surrounding",
-  ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
-  st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
-})
-
--- Register all leader based mappings
-wk.register({
-  ["<Tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
-  b = {
-    name = "Buffers",
-    b = {
-      "<cmd>Telescope buffers<cr>",
-      "Find buffer",
-    },
-    D = {
-      "<cmd>%bd|e#|bd#<cr>",
-      "Close all but the current buffer",
-    },
-    d = { "<cmd>Bdelete<cr>", "Close buffer" },
-  },
-  f = {
-    name = "Files",
-    b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    f = { "<cmd>" .. require("utils").telescope_find_files() .. "<cr>", "Find File" },
-    p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    s = { "<cmd>w<cr>", "Save Buffer" },
-    z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
-  },
-  m = {
-    name = "Misc",
-    c = { "<cmd>lua require('utils').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
-    C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
-    d = { "<cmd>lua require('config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
-    l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
-    o = { "Options" },
-    p = { "<cmd>PackerSync --preview<cr>", "PackerSync" },
-    s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
-  },
-  q = {
-    name = "Quickfix",
-    e = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-    j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
-    k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('utils').toggle_qf()<cr>", "Toggle quickfix list" },
-    t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
-  },
-  s = { "Search" },
-  w = { "Windows" },
-  x = {
-    name = "LanguageTool",
-    c = { "<cmd>GrammarousCheck<cr>", "Grammar check" },
-    i = { "<Plug>(grammarous-open-info-window)", "Open the info window" },
-    r = { "<Plug>(grammarous-reset)", "Reset the current check" },
-    f = { "<Plug>(grammarous-fixit)", "Fix the error under the cursor" },
-    x = {
-      "<Plug>(grammarous-close-info-window)",
-      "Close the information window",
-    },
-    e = {
-      "<Plug>(grammarous-remove-error)",
-      "Remove the error under the cursor",
-    },
-    n = {
-      "<Plug>(grammarous-move-to-next-error)",
-      "Move cursor to the next error",
-    },
-    p = {
-      "<Plug>(grammarous-move-to-previous-error)",
-      "Move cursor to the previous error",
-    },
-    d = {
-      "<Plug>(grammarous-disable-rule)",
-      "Disable the grammar rule under the cursor",
-    },
-  },
-  z = { "Spelling" },
-}, { prefix = "<leader>", mode = "n", default_options })
