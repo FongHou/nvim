@@ -71,6 +71,7 @@ wk.register({
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
+    d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
     f = { "<cmd>" .. require("utils").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
@@ -86,6 +87,7 @@ wk.register({
     o = { "Options" },
     p = { "<cmd>PackerSync --preview<cr>", "PackerSync" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
+    t = { "<cmd>TagbarToggle<cr>", "Toggle Tagbar" },
   },
   q = {
     name = "Quickfix",
