@@ -2,13 +2,16 @@
 
 <div align="center"><p>
     <a href="https://github.com/neovim/neovim">
-      <img alt="Neovim" src="https://img.shields.io/badge/Neovim-0.8.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Neovim-0.8.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white" alt="Neovim"/>
     </a>
     <a href="https://github.com/Allaman/nvim/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/Allaman/nvim"/>
+      <img src="https://img.shields.io/github/last-commit/Allaman/nvim" alt="Last commit"/>
     </a>
     <a href="https://github.com/Allaman/nvim/issues">
-      <img alt="Github issues" src="https://img.shields.io/github/issues/Allaman/nvim.svg?style=flat-square&label=Issues&color=F05F40"/>
+      <img src="https://img.shields.io/github/issues/Allaman/nvim.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/>
+    </a>
+    <a href="https://github.com/Allaman/nvim/actions/workflows/ci.yml">
+      <img src="https://github.com/Allaman/nvim/actions/workflows/ci.yml/badge.svg" alt="CI Status"/>
     </a>
     <a href="https://github.com/Allaman/nvim/blob/main/LICENSE">
       <img src="https://img.shields.io/github/license/Allaman/nvim?style=flat-square&logo=MIT&label=License" alt="License"/>
@@ -219,11 +222,12 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 ├── init.lua         # main entry point
 ├── lua
 │   ├── autocmd.lua  # autocommands
-│   ├── config/      # each plugin configuration is in its own file
+│   ├── config/      # plugin configurations
 │   ├── mappings.lua # Keymappings not in plugin configuration
 │   ├── options.lua  # non plugin related (vim) options
 │   ├── plugins.lua  # define plugins to be managed via Packer
 │   ├── settings.lua # parameters to configure some settings
+│   ├── winbar.lua   # winbar configuration
 │   └── utils.lua    # lua code to extend functionality
 ├── plugin           # packer_compiled
 ├── snippets         # snippets directory (luasnip style)
