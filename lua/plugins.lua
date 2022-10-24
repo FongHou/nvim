@@ -241,6 +241,7 @@ packer.startup(function(use)
     config = get_config("ui.neotree"),
   })
   -- use({ "numToStr/Navigator.nvim", config = get_config("ui.navigator") })
+  use({ "numToStr/Navigator.nvim", config = get_config("ui.navigator") })
 
   use({
     "simrat39/symbols-outline.nvim",
