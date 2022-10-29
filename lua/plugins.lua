@@ -340,4 +340,21 @@ packer.startup(function(use)
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "PaterJason/cmp-conjure" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
+
+  use({
+    "eraserhd/parinfer-rust",
+    opt = true,
+    rtp = "target/release",
+    run = "cargo build --release",
+  })
+  use({
+    "harrygallagher4/nvim-parinfer-rust",
+    config = function()
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          require("parinfer").setup()
+        end,
+      })
+    end,
+  })
 end)
