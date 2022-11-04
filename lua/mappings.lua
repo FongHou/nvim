@@ -38,6 +38,14 @@ map("i", "<C-l>", function()
   return require("utils").escapePair()
 end, default_options)
 
+map({ "n", "x", "o" }, "ss", function()
+  require("leap").leap({ target_windows = { vim.fn.win_getid() } })
+end, { desc = "Jump by character" })
+
+map({ "n", "x", "o" }, "st", function()
+  require("leap-ast").leap()
+end, { desc = "Jump by treesitter" })
+
 local wk = require("which-key")
 
 -- register non leader based mappings
@@ -50,15 +58,7 @@ wk.register({
   sF = "Find left surrounding",
   sf = "Replace right surrounding",
   -- ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
-  ss = { "<Plug>(leap-forward-to)", "Search forward" },
-  S = { "<Plug>(leap-backward-to)", "Search backward" },
   -- st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
-  st = {
-    function()
-      require("leap-ast").leap()
-    end,
-    "Leap to TS node",
-  },
 })
 
 -- Register leader based mappings
