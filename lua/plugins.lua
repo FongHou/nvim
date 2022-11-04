@@ -341,7 +341,19 @@ packer.startup(function(use)
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "PaterJason/cmp-conjure" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
-
+  use({
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").setup()
+    end,
+  })
+  use({
+    "ggandor/leap-ast.nvim",
+    requires = {
+      "ggandor/leap.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  })
   use({
     "eraserhd/parinfer-rust",
     opt = true,
