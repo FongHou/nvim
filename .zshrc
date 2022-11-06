@@ -328,3 +328,4 @@ export FZF_DEFAULT_OPTS="\
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR=vi
+export CGO_LDFLAGS_ALLOW='.*'
