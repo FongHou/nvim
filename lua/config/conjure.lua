@@ -26,8 +26,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.clj",
   callback = function()
-    local port = 9876
-    vim.fn.delete(".nrepl-port")
+    local port = 6666
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"] = port
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "bb nrepl-server localhost:" .. port
   end,
@@ -36,9 +35,18 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.cljs",
   callback = function()
-    local port = 9976
-    vim.fn.delete(".nrepl-port")
+    local port = 9999
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"] = port
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "nbb nrepl-server :port " .. port
+  end,
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    local port = vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"]
+    local portfile = io.open(".nrepl-port", "r")
+    if portfile and port == portfile:read("n") then
+      vim.fn.delete(".nrepl-port")
+    end
   end,
 })
