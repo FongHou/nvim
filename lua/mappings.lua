@@ -40,11 +40,19 @@ end, default_options)
 
 map({ "n", "x", "o" }, "ss", function()
   require("leap").leap({ target_windows = { vim.fn.win_getid() } })
-end, { desc = "Jump by character" })
+end, { desc = "Jump to char2" })
 
 map({ "n", "x", "o" }, "st", function()
   require("leap-ast").leap()
-end, { desc = "Jump by treesitter" })
+end, { desc = "Jump to treesitter" })
+
+map({ "n", "x", "o" }, "gs", function()
+  require("leap").leap({
+    target_windows = vim.tbl_filter(function(win)
+      return vim.api.nvim_win_get_config(win).focusable
+    end, vim.api.nvim_tabpage_list_wins(0)),
+  })
+end, { desc = "Jump to char2 cross windows" })
 
 local wk = require("which-key")
 
