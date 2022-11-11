@@ -7,15 +7,10 @@
 
 (augroup! :HLSearch
   [[CmdlineEnter] ["/" "?"] "set hlsearch"]
-  [[CmdlineLeave] ["/" "?"] "set nohlsearch"]
-  [[CmdlineLeave] ["/" "?"] #((. (require :highlight_current_n) "/,?"))])
+  [[CmdlineLeave] ["/" "?"] "set nohlsearch"])
 
 ;; keymaps
 (g! maplocalleader ",")
-
-(map! [n :silent] "n" "<Plug>(highlight-current-n-n)")
-(map! [n :silent] "N" "<Plug>(highlight-current-n-N)")
-(map! [n] "*" "*N")
 
 (local leap (require :leap))
 (map! [nox] "ss" #(leap.leap {:target_windows [(vim.fn.win_getid)]})

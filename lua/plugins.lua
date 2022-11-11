@@ -343,7 +343,6 @@ packer.startup(function(use)
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "PaterJason/cmp-conjure" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
-  use({ "rktjmp/highlight-current-n.nvim" })
   use({
     "ggandor/leap.nvim",
     config = function()
