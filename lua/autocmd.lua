@@ -101,9 +101,3 @@ if settings.packer_auto_sync then
     callback = sync_packer,
   })
 end
-
-local clipSysGrp = api.nvim_create_augroup("clipSysGrp", { clear = true })
-api.nvim_create_autocmd("TextYankPost", {
-  command = [[if v:event.operator ==# 'y' | call system('clip.exe', @") | endif]],
-  group = clipSysGrp,
-})

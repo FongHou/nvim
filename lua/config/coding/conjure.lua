@@ -5,9 +5,10 @@ vim.g["conjure#mapping#eval_motion"] = ","
 vim.g["conjure#mapping#eval_visual"] = ","
 vim.g["conjure#mapping#doc_word"] = "vd"
 
-local wk = require("which-key")
+local autocmd = vim.api.nvim_create_autocmd
 
-vim.api.nvim_create_autocmd("FileType", {
+local wk = require("which-key")
+autocmd("FileType", {
   pattern = { "clojure", "fennel", "lua", "python" },
   callback = function()
     wk.register({
@@ -23,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
   pattern = "*.clj",
   callback = function()
     local port = 6666
@@ -32,7 +33,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
   pattern = "*.cljs",
   callback = function()
     local port = 9999
@@ -41,7 +42,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd("VimLeave", {
+autocmd("VimLeave", {
   callback = function()
     local port = vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"]
     local portfile = io.open(".nrepl-port", "r")

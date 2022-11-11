@@ -330,17 +330,20 @@ packer.startup(function(use)
   use({ "tweekmonster/startuptime.vim" })
   -- }}} Other
 
-  use({ "Olical/conjure", config = get_config("conjure") })
+  use({ "udayvir-singh/tangerine.nvim" })
+  use({ "udayvir-singh/hibiscus.nvim" })
+  use({ "Olical/conjure", config = get_config("coding.conjure") })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
-  use({ "christoomey/vim-tmux-navigator", config = get_config("tmux") })
+  use({ "christoomey/vim-tmux-navigator" })
   use({ "fonghou/tmuxjump.vim" })
   use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
   use({ "junegunn/fzf" })
   use({ "mg979/vim-visual-multi" })
-  use({ "mtikekar/nvim-send-to-term", config = get_config("send-to-term") })
+  use({ "mtikekar/nvim-send-to-term" })
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "PaterJason/cmp-conjure" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
+  use({ "rktjmp/highlight-current-n.nvim" })
   use({
     "ggandor/leap.nvim",
     config = function()
