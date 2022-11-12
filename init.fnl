@@ -9,6 +9,15 @@
   [[CmdlineEnter] ["/" "?"] "set hlsearch"]
   [[CmdlineLeave] ["/" "?"] "set nohlsearch"])
 
+(local parinfer (require :parinfer))
+(augroup! :AttachParinfer
+  [[FileType]
+   [fennel clojure]
+   (fn []
+     (parinfer.setup!)
+     (parinfer.attach-current-buf!)
+     (parinfer.toggle-trails!))])
+
 ;; keymaps
 (g! maplocalleader ",")
 

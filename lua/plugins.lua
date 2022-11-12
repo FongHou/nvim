@@ -335,6 +335,8 @@ packer.startup(function(use)
   use({ "Olical/conjure", config = get_config("coding.conjure") })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
   use({ "christoomey/vim-tmux-navigator" })
+  use({ "eraserhd/parinfer-rust", opt = true, rtp = "target/release", run = "cargo build --release" })
+  use({ "harrygallagher4/nvim-parinfer-rust" })
   use({ "fonghou/tmuxjump.vim" })
   use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
   use({ "junegunn/fzf" })
@@ -355,21 +357,5 @@ packer.startup(function(use)
       "ggandor/leap.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-  })
-  use({
-    "eraserhd/parinfer-rust",
-    opt = true,
-    rtp = "target/release",
-    run = "cargo build --release",
-  })
-  use({
-    "harrygallagher4/nvim-parinfer-rust",
-    config = function()
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function()
-          require("parinfer").setup()
-        end,
-      })
-    end,
   })
 end)
