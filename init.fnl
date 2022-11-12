@@ -10,12 +10,10 @@
   [[CmdlineLeave] ["/" "?"] "set nohlsearch"])
 
 (local parinfer (require :parinfer))
-(augroup! :AttachParinfer
-  [[FileType]
-   [fennel clojure]
+(augroup! :SetupParinfer
+  [[FileType] [fennel clojure]
    (fn []
-     (parinfer.setup!)
-     (parinfer.toggle-trails!)
+     (parinfer.setup! {:trail_highlight false})
      (parinfer.attach-current-buf!))])
 
 ;; keymaps
