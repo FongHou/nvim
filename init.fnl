@@ -15,8 +15,8 @@
    [fennel clojure]
    (fn []
      (parinfer.setup!)
-     (parinfer.attach-current-buf!)
-     (parinfer.toggle-trails!))])
+     (parinfer.toggle-trails!)
+     (parinfer.attach-current-buf!))])
 
 ;; keymaps
 (g! maplocalleader ",")
