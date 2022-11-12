@@ -32,6 +32,8 @@ ls.config.set_config({ history = true, updateevents = "TextChanged,TextChangedI"
 vsc.lazy_load()
 -- load lua snippets
 lua.load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets/" })
+-- load my snippets
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets/" })
 
 -- expansion key
 -- this will expand the current item or jump to the next item within the snippet.

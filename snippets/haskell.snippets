@@ -1,0 +1,265 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet ann
+  {- ${0:HLINT} -}
+
+snippet pragma
+	{-# ${0} #-}
+
+snippet AllowAmbiguousType
+	AllowAmbiguousType
+
+snippet ApplicativeDo
+	ApplicativeDo
+
+snippet BangPatterns
+	BangPatterns
+
+snippet BinaryLiterals
+	BinaryLiterals
+
+snippet BlockArguments
+	BlockArguments
+
+snippet ConstrainedClassMethods
+	ConstrainedClassMethods
+
+snippet ConstraintKinds
+	ConstraintKinds
+
+snippet DataKinds
+	DataKinds
+
+snippet DeriveDataTypeable
+	DeriveDataTypeable
+
+snippet DeriveFoldable
+	DeriveFoldable
+
+snippet DeriveFunctor
+	DeriveFunctor
+
+snippet DeriveGeneric
+	DeriveGeneric
+
+snippet DeriveLift
+	DeriveLift
+
+snippet DeriveTraversable
+	DeriveTraversable
+
+snippet DerivingStrategies
+	DerivingStrategies
+
+snippet DerivingVia
+	DerivingVia
+
+snippet DuplicateRecordFields
+	DuplicateRecordFields
+
+snippet EmptyCase
+	EmptyCase
+
+snippet EmptyDataDecls
+	EmptyDataDecls
+
+snippet ExistentialQuantification
+	ExistentialQuantification
+
+snippet ExplicitForAll
+	ExplicitForAll
+
+snippet FlexibleContexts
+	FlexibleContexts
+
+snippet FlexibleInstances
+	FlexibleInstances
+
+snippet FunctionalDependencies
+	FunctionalDependencies
+
+snippet ForeignFunctionInterface
+	ForeignFunctionInterface
+
+snippet GeneralisedNewtypeDeriving
+	GeneralisedNewtypeDeriving
+
+snippet ImplicitParams
+	ImplicitParams
+
+snippet ImportQualifiedPost
+	ImportQualifiedPost
+
+snippet ImpredicativeTypes
+	ImpredicativeTypes
+
+snippet InstanceSigs
+	InstanceSigs
+
+snippet KindSignatures
+	KindSignatures
+
+snippet LambdaCase
+	LambdaCase
+
+snippet MagicHash
+	MagicHash
+
+snippet MonadComprehensions
+	MonadComprehensions
+
+snippet MultiParamTypeClasses
+	MultiParamTypeClasses
+
+snippet NamedFieldPuns
+	NamedFieldPuns
+
+snippet NamedWildCards
+	NamedWildCards
+
+snippet NoFieldSelectors
+	NoFieldSelectors
+
+snippet NoImplicitPrelude
+	NoImplicitPrelude
+
+snippet NumericUnderscores
+	NumericUnderscores
+
+snippet OverloadedLabels
+	OverloadedLabels
+
+snippet OverloadedLists
+	OverloadedLists
+
+snippet OverloadedStrings
+	OverloadedStrings
+
+snippet PartialTypeSignatures
+	PartialTypeSignatures
+
+snippet PatternSynonyms
+	PatternSynonyms
+
+snippet PolyKinds
+	PolyKinds
+
+snippet PostfixOperators
+	PostfixOperators
+
+snippet QualifiedDo
+	QualifiedDo
+
+snippet QuantifiedConstraints
+	QuantifiedConstraints
+
+snippet QuasiQuotes
+	QuasiQuotes
+
+snippet RankNTypes
+	RankNTypes
+
+snippet RebindableSyntax
+	RebindableSyntax
+
+snippet RecordWildCards
+	RecordWildCards
+
+snippet RecursiveDo
+	RecursiveDo
+
+snippet RoleAnnotations
+	RoleAnnotations
+
+snippet ScopedTypeVariables
+	ScopedTypeVariables
+
+snippet StandaloneDeriving
+	StandaloneDeriving
+
+snippet StandaloneKindSignatures
+	StandaloneKindSignatures
+
+snippet TupleSections
+	TupleSections
+
+snippet TypeApplications
+	TypeApplications
+
+snippet TypeFamilies
+	TypeFamilies
+
+snippet TypeOperators
+	TypeOperators
+
+snippet UnboxedSums
+	UnboxedSums
+
+snippet UnboxedTuples
+	UnboxedTuples
+
+snippet UndecidableInstances
+	UndecidableInstances
+
+snippet UndecidableSuperClasses
+	UndecidableSuperClasses
+
+snippet ViewPatterns
+	ViewPatterns
+
+snippet imtxt
+	import Data.Text (Text)
+	import qualified Data.Text as T
+	import qualified Data.Text.Encoding as TE
+
+snippet imbs
+	import Data.ByteString (ByteString)
+	import qualified Data.ByteString as B
+
+snippet immap
+	import Data.Map.Strict (Map)
+	import qualified Data.Map.Strict as Map
+
+snippet imimap
+	import Data.IntMap (IntMap)
+	import qualified Data.IntMap as IntMap
+
+snippet imhmap
+	import Data.HashMap.Strict (HashMap)
+	import qualified Data.HashMap.Strict as HashMap
+
+snippet imset
+	import Data.Set (Set)
+	import qualified Data.Set as Set
+
+snippet imiset
+	import Data.IntSet (IntSet)
+	import qualified Data.IntSet as IntSet
+
+snippet imseq
+	import Data.Sequence (Seq)
+	import qualified Data.Sequence as Seq
