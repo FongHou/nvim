@@ -51,3 +51,24 @@ autocmd("VimLeave", {
     end
   end,
 })
+
+-- inform lspconfig about fennel-ls
+local lspconfig = require("lspconfig")
+require("lspconfig.configs")["fennel-ls"] = {
+  default_config = {
+    cmd = { "fennel-ls" },
+    filetypes = { "fennel" },
+    root_dir = function(dir)
+      return lspconfig.util.find_git_ancestor(dir)
+    end,
+    settings = {},
+  },
+}
+-- setup fennel-ls
+local utils = require("config.lsp.utils")
+lspconfig["fennel-ls"].setup({
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
+  on_attach = function(client, bufnr)
+    utils.custom_lsp_attach(client, bufnr)
+  end,
+})

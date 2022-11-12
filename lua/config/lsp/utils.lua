@@ -40,8 +40,8 @@ end
 
 function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
-  client.server_capabilities.documentFormattingProvider = false
-  client.server_capabilities.documentRangeFormattingProvider = false
+  -- client.server_capabilities.documentFormattingProvider = false
+  -- client.server_capabilities.documentRangeFormattingProvider = false
   -- enable navic for displaying current code context
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
@@ -49,7 +49,6 @@ function M.custom_lsp_attach(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_incoming_calls<cr>", bufopts)
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
   local wk = require("which-key")
   local default_options = { silent = true }
@@ -64,8 +63,9 @@ function M.custom_lsp_attach(client, bufnr)
       R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition" },
+      c = { "<cmd>Telescope lsp_incoming_calls<cr>", "Show Callers" },
       e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
-      -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+      f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
       i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
       k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
       l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
