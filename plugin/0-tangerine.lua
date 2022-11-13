@@ -18,7 +18,6 @@ local function bootstrap(url)
 end
 
 bootstrap("https://github.com/udayvir-singh/tangerine.nvim")
-bootstrap("https://github.com/udayvir-singh/hibiscus.nvim")
 
 require("tangerine").setup({
   target = vim.fn.stdpath([[data]]) .. "/tangerine",

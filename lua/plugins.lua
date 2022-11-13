@@ -333,6 +333,7 @@ packer.startup(function(use)
   -- nvim lua fennel
   use({ "udayvir-singh/tangerine.nvim" })
   use({ "udayvir-singh/hibiscus.nvim" })
+  use({ "aileot/nvim-laurel" })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
   use({ "Olical/conjure", config = get_config("coding.conjure") })
   use({ "PaterJason/cmp-conjure" })
