@@ -6,6 +6,7 @@
                        [clj-commons/pomegranate "RELEASE"]
                        [org.clojure/test.check "RELEASE"]
                        [org.clojure/tools.namespace "RELEASE"]
+                       [com.hyperfiddle/rcf "RELEASE"]
                        [com.gfredericks/dot-slash-2 "RELEASE"]
                        [com.github.jpmonettas/flow-storm-inst "RELEASE"]
                        [com.github.jpmonettas/flow-storm-dbg "RELEASE"]

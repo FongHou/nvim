@@ -18,6 +18,7 @@ local servers = {
   "denols",
   "dockerls",
   "jsonls",
+  "marksman",
   "pyright",
   "sumneko_lua",
   "terraformls",

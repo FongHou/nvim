@@ -3,3 +3,4 @@ plugin/packer_compiled.lua
 spell/
 .lsp/
 .clj-kondo/
+.luarc.json

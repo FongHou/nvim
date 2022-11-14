@@ -27,6 +27,8 @@ M.disable_tmux_statusline_integration = false
 -- Disable https://github.com/norcalli/nvim-colorizer.lua
 -- due to causing lags with live_grep in some circumstances
 M.disable_colorizer = false
+-- Noice heavily changes the Neovim UI ...
+M.disable_noice = true
 -- Disable winbar with nvim-navic location
 M.disable_winbar = false
 -- Number of recent files shown in dashboard
@@ -59,9 +61,11 @@ M.treesitter_ensure_installed = {
   "ledger",
   "lua",
   "markdown",
+  "markdown_inline",
   "python",
   "regex",
   "toml",
+  "vim",
   "yaml",
 }
 
