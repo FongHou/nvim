@@ -14,3 +14,9 @@ map("n", ",>3", ":ConjureEval (tap> *3)<CR>", options(" *3"))
 map("n", ",>e", ":ConjureEval (tap> *e)<CR>", options(" *e"))
 map("v", ",>", 'y :ConjureEval (tap> <C-r>=@"<CR>)<CR>', options("tap> visual select"))
 map("n", ",cb", ":ConjureEval (nextjournal.clerk/show! \"<C-r>=expand('%')<CR>\")<CR>", options("Show clerk notebook"))
+
+vim.api.nvim_create_user_command(
+  "RevealToggle",
+  "ConjureEval (vlaaad.reveal/submit-command! :always-on-top (vlaaad.reveal/toggle-minimized))<CR>",
+  {}
+)
