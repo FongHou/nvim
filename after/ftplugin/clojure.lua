@@ -23,9 +23,11 @@ map("v", ",r", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("trace selecte
 map("n", ",tt", ":ConjureEval (typed.clojure/check-ns-clj)<CR>", options("type check current NS"))
 map("v", ",t", 'y :ConjureEval (typed.clojure/cf <C-r>=@"<CR>)<CR>', options("type check selected form"))
 
-map("n", ",vn", ":ConjureEval (nextjournal.clerk/show! \"<C-r>=expand('%')<CR>\")<CR>", options("View notebook"))
+local command = vim.api.nvim_create_user_command
 
-vim.api.nvim_create_user_command(
+command("Clerk", 'ConjureEval (nextjournal.clerk/show! "' .. vim.fn.expand("%") .. '")', {})
+
+command(
   "RevealToggle",
   "ConjureEval (vlaaad.reveal/submit-command! :always-on-top (vlaaad.reveal/toggle-minimized))<CR>",
   {}
