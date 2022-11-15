@@ -12,14 +12,10 @@ autocmd("FileType", {
   pattern = { "clojure", "fennel", "lua", "python" },
   callback = function()
     wk.register({
-      c = { "connect" },
       e = { "eval" },
       g = { "goto" },
       l = { "log" },
-      r = { "repl" },
-      s = { "session" },
       t = { "test" },
-      v = { "view" },
     }, { prefix = "<localleader>", mode = "n", silent = true })
   end,
 })

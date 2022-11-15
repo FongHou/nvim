@@ -1,6 +1,10 @@
 local wk = require("which-key")
 wk.register({
   [">"] = { "tap>" },
+  c = { "connect" },
+  r = { "refresh" },
+  s = { "session" },
+  v = { "view" },
 }, { prefix = "<localleader>", mode = "n", silent = true })
 
 local function options(desc)
@@ -12,7 +16,7 @@ map("n", ",>1", ":ConjureEval (tap> *1)<CR>", options(" *1"))
 map("n", ",>2", ":ConjureEval (tap> *2)<CR>", options(" *2"))
 map("n", ",>3", ":ConjureEval (tap> *3)<CR>", options(" *3"))
 map("n", ",>e", ":ConjureEval (tap> *e)<CR>", options(" *e"))
-map("n", ",cb", ":ConjureEval (nextjournal.clerk/show! \"<C-r>=expand('%')<CR>\")<CR>", options("Show clerk notebook"))
+map("n", ",vn", ":ConjureEval (nextjournal.clerk/show! \"<C-r>=expand('%')<CR>\")<CR>", options("View notebook"))
 
 map("v", ",>", 'y :ConjureEval (tap> <C-r>=@"<CR>)<CR>', options("tap> selected form"))
 map("v", ",i", 'y :ConjureEval #reveal/inspect <C-r>=@"<CR><CR>', options("inspect selected form"))
