@@ -1,3 +1,4 @@
+vim.g["conjure#log#strip_ansi_escape_sequences_line_limit"] = 0
 vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = true
 vim.g["conjure#client#clojure#nrepl#connection#auto_repl#hidden"] = true
 vim.g["conjure#client#clojure#nrepl#eval#auto_require"] = false
@@ -45,6 +46,14 @@ autocmd("VimLeave", {
     if portfile and port == portfile:read("n") then
       vim.fn.delete(".nrepl-port")
     end
+  end,
+})
+
+local baleia = require("baleia").setup({ line_starts_at = 3 })
+autocmd("BufWinEnter", {
+  pattern = { "conjure-log-*" },
+  callback = function()
+    baleia.automatically(vim.api.nvim_get_current_buf())
   end,
 })
 

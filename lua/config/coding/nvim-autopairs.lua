@@ -8,3 +8,6 @@ require("nvim-autopairs").setup({
     java = false, -- don't check treesitter on java
   },
 })
+local autopairs = require("nvim-autopairs")
+autopairs.remove_rule("'")
+autopairs.remove_rule("`")
