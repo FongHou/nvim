@@ -30,7 +30,7 @@
                           #(. (vim.api.nvim_win_get_config $) :focusable)
                           (vim.api.nvim_tabpage_list_wins 0))}))
 
-(map! [:n :o :x] [:silent]
+(map! [:n :o :x] [:silent :desc "Jump to TS object"]
       "st" (partial (. (require :leap-ast) :leap)))
 
 ;; send-to-term
