@@ -1,46 +1,49 @@
-(import-macros {: g! : set! : map! : augroup! : command!} :hibiscus.vim)
+(import-macros {: g! : set!
+                : augroup! : au! : command!
+                : nmap! : vmap! : map!} :nvim-laurel.macros)
 
 ;; autocmd
 (augroup! :SystemClip
-  [[TextYankPost] *
-   "if v:event.operator ==# 'y' | call system('clip.exe', @\") | endif"])
+  [:TextYankPost "if v:event.operator ==# 'y' | call system('clip.exe', @\") | endif"])
 
 (augroup! :HLSearch
-  [[CmdlineEnter] ["/" "?"] "set hlsearch"]
-  [[CmdlineLeave] ["/" "?"] "set nohlsearch"])
+  (au! :CmdlineEnter ["/" "?"] "set hlsearch")
+  (au! :CmdlineLeave ["/" "?"] "set nohlsearch"))
 
 (local parinfer (require :parinfer))
 (augroup! :SetupParinfer
-  [[FileType] [fennel clojure]
+  [:FileType [:fennel :clojure]
    (fn []
      (parinfer.setup! {:trail_highlight false})
      (parinfer.attach-current-buf!))])
 
 ;; keymaps
-(g! maplocalleader ",")
+(g! :maplocalleader ",")
 
 (local leap (require :leap))
-(map! [nox] "ss" #(leap.leap {:target_windows [(vim.fn.win_getid)]})
-      "Jump to char2")
-(map! [nox] "gs" #(leap.leap {:target_windows
-                              (vim.tbl_filter
-                                #(. (vim.api.nvim_win_get_config $) :focusable)
-                                (vim.api.nvim_tabpage_list_wins 0))})
-      "Jump to char2 cross windows")
-(map! [nox] "st" (. (require :leap-ast) :leap)
-      "Jump to treesitter")
+(map! [:n :o :x] [:silent :desc "Jump to char2"]
+      "ss" #(leap.leap {:target_windows [(vim.fn.win_getid)]}))
+
+(map! [:n :o :x] [:silent :desc "Jump to char2 (window)"]
+      "gs" #(leap.leap {:target_windows
+                        (vim.tbl_filter
+                          #(. (vim.api.nvim_win_get_config $) :focusable)
+                          (vim.api.nvim_tabpage_list_wins 0))}))
+
+(map! [:n :o :x] [:silent]
+      "st" (partial (. (require :leap-ast) :leap)))
 
 ;; send-to-term
-(g! send_disable_mapping true)
-(g! send_multiline {:ghci {:begin ":{\n" :end "\n:}\n" :newline "\n"}})
+(g! :send_disable_mapping true)
+(g! :send_multiline {:ghci {:begin ":{\n" :end "\n:}\n" :newline "\n"}})
 
-(map! [n :silent] ",$" "<Plug>Send$" "Send to Repl")
-(map! [n :silent] ",;" "<Plug>SendLine" "Send to Repl")
-(map! [v :silent] ",;" "<Plug>Send" "Send to Repl")
+(nmap! [:silent :desc "Send to repl"] ",$" "<Plug>Send$")
+(nmap! [:silent :desc "Send to repl"] ",;" "<Plug>SendLine")
+(vmap! [:silent :desc "Send to repl"] ",;" "<Plug>Send")
 
 (command! [:nargs 1] "Repl" ":call g:send_target.send(['<args>'])")
 
 ;; tmux-navigator
-(g! tmux_navigator_no_wrap true)
-(g! tmux_navigator_disable_when_zoomed true)
-(g! tmux_navigator_preserve_zoom true)
+(g! :tmux_navigator_no_wrap true)
+(g! :tmux_navigator_disable_when_zoomed true)
+(g! :tmux_navigator_preserve_zoom true)

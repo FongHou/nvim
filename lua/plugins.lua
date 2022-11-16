@@ -339,17 +339,14 @@ packer.startup(function(use)
   use({ "tweekmonster/startuptime.vim" })
   -- }}} Other
 
-  -- nvim lua fennel
+  -- nvim uses fennel
   use({ "udayvir-singh/tangerine.nvim" })
-  use({ "udayvir-singh/hibiscus.nvim" })
   use({ "aileot/nvim-laurel" })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
-  -- clojure conjure
+  -- clojure uses conjure
   use({ "Olical/conjure", config = get_config("coding.conjure") })
   use({ "m00qek/baleia.nvim", tag = "v1.2.0" })
   use({ "PaterJason/cmp-conjure" })
-  use({ "eraserhd/parinfer-rust", opt = true, rtp = "target/release", run = "cargo build --release" })
-  use({ "harrygallagher4/nvim-parinfer-rust" })
   -- tmux and other tools
   use({ "fonghou/tmuxjump.vim" })
   use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
@@ -359,18 +356,9 @@ packer.startup(function(use)
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
   -- editing
+  use({ "eraserhd/parinfer-rust", opt = true, rtp = "target/release", run = "cargo build --release" })
+  use({ "harrygallagher4/nvim-parinfer-rust" })
   use({ "mg979/vim-visual-multi" })
-  use({
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap")
-    end,
-  })
-  use({
-    "ggandor/leap-ast.nvim",
-    requires = {
-      "ggandor/leap.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  })
+  use({ "ggandor/leap.nvim" })
+  use({ "ggandor/leap-ast.nvim" })
 end)
