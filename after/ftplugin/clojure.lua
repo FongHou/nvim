@@ -18,9 +18,6 @@ map("v", ",>", 'y :ConjureEval (tap> <C-r>=@"<CR>)<CR>', options("tap selected f
 map("v", ",i", 'y :ConjureEval #reveal/inspect <C-r>=@"<CR><CR>', options("inspect selected form"))
 map("v", ",r", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("trace selected form"))
 
-map("n", ",tt", ":ConjureEval (typed.clojure/check-ns-clj)<CR>", options("type check current NS"))
-map("v", ",t", 'y :ConjureEval (typed.clojure/cf <C-r>=@"<CR>)<CR>', options("type check selected form"))
-
 local command = vim.api.nvim_create_user_command
 
 command("Clerk", 'ConjureEval (nextjournal.clerk/show! "' .. vim.fn.expand("%") .. '")', {})

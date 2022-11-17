@@ -1,23 +1,15 @@
-{:user {:dependencies [;; repl
-                       [nrepl "RELEASE"]
+{:user {:dependencies [[nrepl "RELEASE"]
+                       [expound "RELEASE"]
                        [io.aviso/pretty "RELEASE"]
                        [djblue/portal "RELEASE"]
                        [vlaaad/reveal "RELEASE"]
                        [clj-commons/pomegranate "RELEASE"]
                        [org.clojure/tools.namespace "RELEASE"]
                        [com.gfredericks/dot-slash-2 "RELEASE"]
-                       ;; spec & type
-                       [expound "RELEASE"]
-                       [orchestra "RELEASE"]
-                       [org.typedclojure/typed.clj.checker "RELEASE"]
-                       [org.typedclojure/typed.clj.runtime "RELEASE"]
-                       [org.typedclojure/typed.clj.spec "RELEASE"]
-                       [org.typedclojure/typed.lib.clojure "RELEASE"]
-                       [org.typedclojure/typed.lib.spec.alpha "RELEASE"]
                        ;; testing
                        [criterium "RELEASE"]
-                       [org.clojure/test.check "RELEASE"]
                        [com.hyperfiddle/rcf "RELEASE"]
+                       [org.clojure/test.check "RELEASE"]
                        ;; debugger
                        [postmortem "RELEASE"]
                        [com.github.jpmonettas/flow-storm-inst "RELEASE"]
@@ -25,7 +17,7 @@
 
 
         :plugins [[cider/cider-nrepl "RELEASE"]
-                  [com.github.liquidz/antq "RELEASE"]
+                  [jonase/eastwood "RELEASE"]
                   [io.aviso/pretty "RELEASE"]]
 
         :middleware [io.aviso.lein-pretty/inject]
