@@ -1,10 +1,8 @@
 local wk = require("which-key")
 wk.register({
   [">"] = { "tap>" },
-  c = { "connect" },
   r = { "refresh" },
   s = { "session" },
-  v = { "view" },
 }, { prefix = "<localleader>", mode = "n", silent = true })
 
 local function options(desc)
