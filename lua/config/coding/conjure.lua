@@ -56,6 +56,7 @@ local baleia = require("baleia").setup({ line_starts_at = 3 })
 autocmd("BufWinEnter", {
   pattern = { "conjure-log-*" },
   callback = function()
+    vim.diagnostic.disable(0)
     baleia.automatically(vim.api.nvim_get_current_buf())
   end,
 })

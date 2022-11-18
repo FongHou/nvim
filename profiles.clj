@@ -17,13 +17,12 @@
 
 
         :plugins [[cider/cider-nrepl "RELEASE"]
-                  [jonase/eastwood "RELEASE"]
                   [io.aviso/pretty "RELEASE"]]
 
         :middleware [io.aviso.lein-pretty/inject]
 
         :repl-options {:init-ns user
-                       :init (do (require '[typed.clojure :as type])
+                       :init (do (require '[vlaaad.reveal :as reveal])
                                  (require '[flow-storm.api :as dbg]))}
 
         :injections [(do (require 'com.gfredericks.dot-slash-2)
