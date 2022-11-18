@@ -70,7 +70,6 @@ wk.register({
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
     f = { "<cmd>" .. require("utils").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
@@ -93,6 +92,7 @@ wk.register({
     j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
     k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
     q = { "<cmd>lua require('utils').toggle_qf()<cr>", "Toggle quickfix list" },
+    s = { "<cmd>Telescope diagnostics<cr>", "Show diagnostics" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   -- hydra heads
