@@ -26,7 +26,7 @@
 (map! [:n :o :x] [:silent :desc "Jump to char2"]
       "ss" #(leap.leap {:target_windows [(vim.fn.win_getid)]}))
 
-(map! [:n :o :x] [:silent :desc "Jump to char2 (window)"]
+(map! [:n :o :x] [:silent :desc "Jump to char2 in all windows"]
       "gs" #(leap.leap {:target_windows
                         (vim.tbl_filter
                           #(. (vim.api.nvim_win_get_config $) :focusable)

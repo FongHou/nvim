@@ -47,8 +47,8 @@ function M.custom_lsp_attach(client, bufnr)
     require("nvim-navic").attach(client, bufnr)
   end
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
+  vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", bufopts)
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
   local wk = require("which-key")
   local default_options = { silent = true }
