@@ -2,6 +2,8 @@
                 : augroup! : au! : command!
                 : nmap! : vmap! : map!} :nvim-laurel.macros)
 
+(set! :cmdheight 0)
+
 ;; autocmd
 (augroup! :SystemClip
   [:TextYankPost "if v:event.operator ==# 'y' | call system('clip.exe', @\") | endif"])
