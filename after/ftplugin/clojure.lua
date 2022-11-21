@@ -17,13 +17,3 @@ map("n", ",>e", ":ConjureEval (tap> *e)<CR>", options(" *e"))
 map("v", ",>", 'y :ConjureEval (tap> <C-r>=@"<CR>)<CR>', options("tap selected form"))
 map("v", ",i", 'y :ConjureEval #reveal/inspect <C-r>=@"<CR><CR>', options("inspect selected form"))
 map("v", ",r", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("trace selected form"))
-
-local command = vim.api.nvim_create_user_command
-
-command("Clerk", 'ConjureEval (nextjournal.clerk/show! "' .. vim.fn.expand("%") .. '")', {})
-
-command(
-  "RevealToggle",
-  "ConjureEval (vlaaad.reveal/submit-command! :always-on-top (vlaaad.reveal/toggle-minimized))<CR>",
-  {}
-)

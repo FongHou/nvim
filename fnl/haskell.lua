@@ -15,7 +15,7 @@ M.ghcid = {
     command = "bash",
     args = {
       "-c",
-      [[ sleep 1 && [ -f ghcid.log ] && cat ghcid.log \
+      [[ sleep 2 && [ -f ghcid.log ] && cat ghcid.log \
           | grep -A1 -E '.*: (error|warning):' \
           | grep -v '\--' \
           | paste -sd'\0\n' -
