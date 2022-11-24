@@ -9,6 +9,8 @@ local keys = {
     k = "ghci kind",
     l = "ghci load",
     r = "ghci reload",
+    t = "ghci type",
+    T = "ghci type",
   }
 
 wk.register(keys, {mode = "n", prefix = "<localleader>", silent = true})
@@ -20,8 +22,8 @@ nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><C
 vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>
 
 nnoremap <silent><nowait> <localleader>h   :Repl :hdoc <C-r>=expand('<cexpr>')<CR><CR>
+
 nnoremap <silent><nowait> <localleader>i   :Repl :info <C-r>=expand('<cexpr>')<CR><CR>
-vnoremap <silent><nowait> <localleader>i y :Repl :info <C-r>=@"<CR><CR>
 
 nnoremap <silent><nowait> <localleader>j   :Repl :instances <C-r>=expand('<cexpr>')<CR><CR>
 vnoremap <silent><nowait> <localleader>j y :Repl :instances <C-r>=@"<CR><CR>
@@ -29,8 +31,19 @@ vnoremap <silent><nowait> <localleader>j y :Repl :instances <C-r>=@"<CR><CR>
 nnoremap <silent><nowait> <localleader>k   :Repl :kind <C-r>=expand('<cexpr>')<CR><CR>
 vnoremap <silent><nowait> <localleader>k y :Repl :kind! <C-r>=@"<CR><CR>
 
-nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%:p')<CR><CR>
+nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%')<CR><CR>
 nnoremap <silent><nowait> <localleader>r   :Repl :reload!<CR>
+
+nnoremap <silent><nowait> <localleader>t   :Repl :type +d <C-r>=expand('<cexpr>')<CR><CR>
+vnoremap <silent><nowait> <localleader>t   <Cmd>call GHC_type_at()<CR>
+vnoremap <silent><nowait> <localleader>T y :Repl :type <C-r>=@"<CR><CR>
+
+function! GHC_type_at()
+  let file = './' . expand('%')
+  let [startln, startcol] = getpos('v')[1:2]
+  let [endln, endcol] = getcursorcharpos()[1:2]
+  :execute 'Repl :type-at ' . join([file, startln, startcol, endln, endcol], ' ')
+endfunction
 
 let g:hoogle_open_link = 'edge'
 let g:hoogle_fzf_preview = 'down:40%:wrap'
