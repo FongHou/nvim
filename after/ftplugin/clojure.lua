@@ -1,6 +1,6 @@
 local wk = require("which-key")
 wk.register({
-  [">"] = { "tap>" },
+  p = { "portal" },
   r = { "refresh" },
   s = { "session" },
 }, { prefix = "<localleader>", mode = "n", silent = true })
@@ -10,10 +10,13 @@ local function options(desc)
 end
 
 local map = vim.keymap.set
-map("n", ",>1", ":ConjureEval (tap> *1)<CR>", options(" *1"))
-map("n", ",>2", ":ConjureEval (tap> *2)<CR>", options(" *2"))
-map("n", ",>3", ":ConjureEval (tap> *3)<CR>", options(" *3"))
-map("n", ",>e", ":ConjureEval (tap> *e)<CR>", options(" *e"))
-map("v", ",>", 'y :ConjureEval (tap> <C-r>=@"<CR>)<CR>', options("tap selected form"))
+map("n", ",p1", ":ConjureEval (tap> *1)<CR>", options("tap last result"))
+map("n", ",pe", ":ConjureEval (tap> (Throwable->map *e))<CR>", options("tap last exception"))
+map("n", ",pn", ":ConjureEval (tap> (-> *ns* (clojure.datafy/datafy) :publics))<CR>", options("tap current namespace"))
+map("n", ",ps", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("tap scope-capture"))
+map("n", ",pc", ":ConjureEval (portal.api/clear)<CR>", options("portal clear"))
+map("n", ",po", ":ConjureEval (portal.api/open)<CR>", options("portal open"))
+map("v", ",d", 'y :ConjureEval (tap> (def <C-r>=@"<CR>))<CR>', options("tap def binding"))
+map("v", ",p", 'y :ConjureEval (tap> <C-r>=@"<CR>)<CR>', options("tap selected form"))
 map("v", ",i", 'y :ConjureEval #reveal/inspect <C-r>=@"<CR><CR>', options("inspect selected form"))
 map("v", ",r", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("trace selected form"))
