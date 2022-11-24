@@ -47,7 +47,6 @@ function! GHC_type_at()
   if startcol > endcol
     let [startcol, endcol] = [endcol, startcol]
   endif
-  :execute 'Repl :type-at ' . join(['./' . file, startln, startcol, endln, endcol], ' ')
   :execute 'Repl :type-at ' . join([file, startln, startcol, endln, endcol], ' ')
 endfunction
 
