@@ -31,7 +31,7 @@ vnoremap <silent><nowait> <localleader>j y :Repl :instances <C-r>=@"<CR><CR>
 nnoremap <silent><nowait> <localleader>k   :Repl :kind <C-r>=expand('<cexpr>')<CR><CR>
 vnoremap <silent><nowait> <localleader>k y :Repl :kind! <C-r>=@"<CR><CR>
 
-nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%')<CR><CR>
+nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
 nnoremap <silent><nowait> <localleader>r   :Repl :reload!<CR>
 
 nnoremap <silent><nowait> <localleader>t   :Repl :type +d <C-r>=expand('<cexpr>')<CR><CR>
@@ -39,9 +39,16 @@ vnoremap <silent><nowait> <localleader>t   <Cmd>call GHC_type_at()<CR>
 vnoremap <silent><nowait> <localleader>T y :Repl :type <C-r>=@"<CR><CR>
 
 function! GHC_type_at()
-  let file = './' . expand('%')
+  let file = expand('%:p:.')
   let [startln, startcol] = getpos('v')[1:2]
   let [endln, endcol] = getcursorcharpos()[1:2]
+  if startln > endln
+    let [startln, endln] = [endln, startln]
+  endif
+  if startcol > endcol
+    let [startcol, endcol] = [endcol, startcol]
+  endif
+  :execute 'Repl :type-at ' . join(['./' . file, startln, startcol, endln, endcol], ' ')
   :execute 'Repl :type-at ' . join([file, startln, startcol, endln, endcol], ' ')
 endfunction
 
