@@ -18,11 +18,13 @@ wk.register(keys, {mode = "v", prefix = "<localleader>", silent = true})
 
 WKMAP
 
+nnoremap <silent><nowait> <localleader>l :w <bar>:Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
+nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>
+
 nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>
 
 nnoremap <silent><nowait> <localleader>h   :Repl :hdoc <C-r>=expand('<cexpr>')<CR><CR>
-
 nnoremap <silent><nowait> <localleader>i   :Repl :info <C-r>=expand('<cexpr>')<CR><CR>
 
 nnoremap <silent><nowait> <localleader>j   :Repl :instances <C-r>=expand('<cexpr>')<CR><CR>
@@ -30,9 +32,6 @@ vnoremap <silent><nowait> <localleader>j y :Repl :instances <C-r>=@"<CR><CR>
 
 nnoremap <silent><nowait> <localleader>k   :Repl :kind <C-r>=expand('<cexpr>')<CR><CR>
 vnoremap <silent><nowait> <localleader>k y :Repl :kind! <C-r>=@"<CR><CR>
-
-nnoremap <silent><nowait> <localleader>l   :Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
-nnoremap <silent><nowait> <localleader>r   :Repl :reload!<CR>
 
 nnoremap <silent><nowait> <localleader>t   :Repl :type +d <C-r>=expand('<cexpr>')<CR><CR>
 vnoremap <silent><nowait> <localleader>t   <Cmd>call GHC_type_at()<CR>
