@@ -3,7 +3,7 @@ lua <<WKMAP
 local wk = require("which-key")
 local keys = {
     g = "hoogle search",
-    h = "ghci hdoc",
+    h = "ghci doc",
     i = "ghci info",
     j = "ghci instances",
     k = "ghci kind",
@@ -24,7 +24,7 @@ nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>
 nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>
 
-nnoremap <silent><nowait> <localleader>h   :Repl :hdoc <C-r>=expand('<cexpr>')<CR><CR>
+nnoremap <silent><nowait> <localleader>h   :Repl :doc <C-r>=expand('<cword>')<CR><CR>
 nnoremap <silent><nowait> <localleader>i   :Repl :info <C-r>=expand('<cexpr>')<CR><CR>
 
 nnoremap <silent><nowait> <localleader>j   :Repl :instances <C-r>=expand('<cexpr>')<CR><CR>
