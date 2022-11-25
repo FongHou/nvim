@@ -39,7 +39,6 @@ packer.init({
 packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
 
-if not vim.g.vscode then
   -- {{{ Coding
   use({ "windwp/nvim-autopairs", config = get_config("coding.nvim-autopairs") })
 
@@ -347,8 +346,12 @@ if not vim.g.vscode then
   use({ "mtikekar/nvim-send-to-term" })
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
-end -- not vim.g.vscode
-
+  -- editing
+  use({ "eraserhd/parinfer-rust", opt = true, rtp = "target/release", run = "cargo build --release" })
+  use({ "harrygallagher4/nvim-parinfer-rust" })
+  use({ "ggandor/leap.nvim" })
+  use({ "ggandor/leap-ast.nvim" })
+  use({ "tpope/vim-repeat" })
   -- nvim uses fennel
   use({ "aileot/nvim-laurel" })
   use({ "udayvir-singh/tangerine.nvim" })
@@ -357,10 +360,4 @@ end -- not vim.g.vscode
   use({ "Olical/conjure", config = get_config("coding.conjure") })
   use({ "m00qek/baleia.nvim", tag = "v1.2.0" })
   use({ "PaterJason/cmp-conjure" })
-  -- editing
-  use({ "eraserhd/parinfer-rust", opt = true, rtp = "target/release", run = "cargo build --release" })
-  use({ "harrygallagher4/nvim-parinfer-rust" })
-  use({ "ggandor/leap.nvim" })
-  use({ "ggandor/leap-ast.nvim" })
-  use({ "tpope/vim-repeat" })
 end)
