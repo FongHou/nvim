@@ -33,7 +33,7 @@
                           (vim.api.nvim_tabpage_list_wins 0))}))
 
 (map! [:n :o :x] [:silent :desc "Jump to TS object"]
-      "st" (partial (. (require :leap-ast) :leap)))
+      "S" (partial (. (require :leap-ast) :leap)))
 
 ;; send-to-term
 (g! :send_disable_mapping true)
