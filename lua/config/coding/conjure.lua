@@ -27,28 +27,14 @@ autocmd("FileType", {
 autocmd("BufEnter", {
   pattern = "*.clj",
   callback = function()
-    local port = 6666
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"] = port
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "bb nrepl-server localhost:" .. port
+    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "bb nrepl-server localhost:$port"
   end,
 })
 
 autocmd("BufEnter", {
   pattern = "*.cljs",
   callback = function()
-    local port = 9999
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"] = port
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "nbb nrepl-server :port " .. port
-  end,
-})
-
-autocmd("VimLeave", {
-  callback = function()
-    local port = vim.g["conjure#client#clojure#nrepl#connection#auto_repl#port"]
-    local portfile = io.open(".nrepl-port", "r")
-    if portfile and port == portfile:read("n") then
-      vim.fn.delete(".nrepl-port")
-    end
+    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "nbb nrepl-server :port $port"
   end,
 })
 
@@ -60,24 +46,3 @@ autocmd("BufWinEnter", {
     baleia.automatically(vim.api.nvim_get_current_buf())
   end,
 })
-
--- inform lspconfig about fennel-ls
--- local lspconfig = require("lspconfig")
--- require("lspconfig.configs")["fennel-ls"] = {
---   default_config = {
---     cmd = { "fennel-ls" },
---     filetypes = { "fennel" },
---     root_dir = function(dir)
---       return lspconfig.util.find_git_ancestor(dir)
---     end,
---     settings = {},
---   },
--- }
--- setup fennel-ls
--- local utils = require("config.lsp.utils")
--- lspconfig["fennel-ls"].setup({
---   capabilities = vim.lsp.protocol.make_client_capabilities(),
---   on_attach = function(client, bufnr)
---     utils.custom_lsp_attach(client, bufnr)
---   end,
--- })
