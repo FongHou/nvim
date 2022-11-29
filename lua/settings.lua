@@ -62,6 +62,7 @@ M.treesitter_ensure_installed = {
   "lua",
   "markdown",
   "markdown_inline",
+  "query",
   "python",
   "regex",
   "toml",
