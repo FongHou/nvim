@@ -5,6 +5,7 @@ local languages = require("config.lsp.languages")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- enable autoclompletion via nvim-cmp
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities.offsetEncoding = { "utf-16" }
 -- enable folding capabilities for nvim-ufo
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
