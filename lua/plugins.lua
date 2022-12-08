@@ -138,7 +138,6 @@ packer.startup(function(use)
 
   use({ "famiu/bufdelete.nvim" })
 
-  -- use({ "rafcamlet/nvim-luapad", ft = "lua" })
   -- }}} Coding
 
   -- {{{ Dap
