@@ -59,7 +59,6 @@ packer.startup(function(use)
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-calc",
       "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-nvim-lsp-signature-help",
     },
@@ -349,8 +348,9 @@ packer.startup(function(use)
   use({ "harrygallagher4/nvim-parinfer-rust" })
   use({ "ggandor/leap.nvim" })
   use({ "ggandor/leap-ast.nvim" })
-  use({ "tpope/vim-repeat" })
   use({ "mg979/vim-visual-multi" })
+  use({ "tpope/vim-repeat" })
+  use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
   -- tmux and other tools
   use({ "junegunn/fzf" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })

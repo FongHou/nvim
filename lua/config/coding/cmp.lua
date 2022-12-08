@@ -10,12 +10,11 @@ cmp.setup({
       mode = "symbol",
       menu = {
         buffer = "BUF",
-        rg = "RG",
-        nvim_lsp = "LSP",
         conjure = "CONJ",
+        nvim_lsp = "LSP",
         path = "PATH",
         luasnip = "SNIP",
-        calc = "CALC",
+        cmp_tabnine = "T9",
         tags = "TAG",
       },
       before = function(entry, vim_item)
@@ -60,9 +59,8 @@ cmp.setup({
     { name = "buffer", keyword_length = 5 },
     { name = "luasnip" },
     { name = "tags" },
-    { name = "calc" },
     { name = "path" },
-    { name = "rg", keyword_length = 5 },
+    { name = "cmp_tabnine", keyword_length = 5 },
   },
 })
 
