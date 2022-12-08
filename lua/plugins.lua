@@ -338,28 +338,28 @@ packer.startup(function(use)
   use({ "tweekmonster/startuptime.vim" })
   -- }}} Other
 
-  -- tmux and other tools
-  use({ "mg979/vim-visual-multi" })
-  use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
-  use({ "fonghou/tmuxjump.vim" })
-  use({ "christoomey/vim-tmux-navigator" })
-  use({ "junegunn/fzf" })
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({ "mtikekar/nvim-send-to-term" })
-  use({ "preservim/tagbar", cmd = "TagbarToggle" })
-  use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
+  -- nvim uses fennel
+  use({ "aileot/nvim-laurel" })
+  use({ "udayvir-singh/tangerine.nvim" })
+  -- clojure uses conjure
+  use({ "Olical/conjure", config = get_config("coding.conjure") })
+  use({ "PaterJason/cmp-conjure" })
+  use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
   -- editing
   use({ "eraserhd/parinfer-rust", opt = true, rtp = "target/release", run = "cargo build --release" })
   use({ "harrygallagher4/nvim-parinfer-rust" })
   use({ "ggandor/leap.nvim" })
   use({ "ggandor/leap-ast.nvim" })
   use({ "tpope/vim-repeat" })
-  -- nvim uses fennel
-  use({ "aileot/nvim-laurel" })
-  use({ "udayvir-singh/tangerine.nvim" })
-  use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
-  -- clojure uses conjure
-  use({ "Olical/conjure", config = get_config("coding.conjure") })
+  use({ "mg979/vim-visual-multi" })
+  -- tmux and other tools
+  use({ "junegunn/fzf" })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
+  use({ "fonghou/tmuxjump.vim" })
+  use({ "christoomey/vim-tmux-navigator" })
+  use({ "mtikekar/nvim-send-to-term" })
+  use({ "preservim/tagbar", cmd = "TagbarToggle" })
+  use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
   use({ "m00qek/baleia.nvim", tag = "v1.2.0" })
-  use({ "PaterJason/cmp-conjure" })
 end)
