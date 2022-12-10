@@ -335,10 +335,10 @@ packer.startup(function(use)
   use({ "tweekmonster/startuptime.vim" })
   -- }}} Other
 
-  -- nvim uses fennel
+  -- nvim needs fennel
   use({ "aileot/nvim-laurel" })
   use({ "udayvir-singh/tangerine.nvim" })
-  -- clojure uses conjure
+  -- clojure needs conjure
   use({ "Olical/conjure", config = get_config("coding.conjure") })
   use({ "PaterJason/cmp-conjure" })
   use({ "MunifTanjim/exrc.nvim", files = { ".nvimrc.lua", ".nvimrc" } })
@@ -351,12 +351,13 @@ packer.startup(function(use)
   use({ "tpope/vim-repeat" })
   use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
   -- tmux and other tools
-  use({ "junegunn/fzf" })
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
-  use({ "fonghou/tmuxjump.vim" })
+  use({ "ThePrimeagen/harpoon" })
   use({ "christoomey/vim-tmux-navigator" })
+  use({ "fonghou/tmuxjump.vim" })
   use({ "mtikekar/nvim-send-to-term" })
+  use({ "junegunn/fzf" })
+  use({ "fonghou/fzf-hoogle.vim", ft = "haskell" })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "preservim/tagbar", cmd = "TagbarToggle" })
   use({ "quangnguyen30192/cmp-nvim-tags", ft = "haskell" })
   use({ "m00qek/baleia.nvim", tag = "v1.2.0" })
