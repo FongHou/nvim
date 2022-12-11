@@ -16,4 +16,5 @@ local command = vim.api.nvim_create_user_command
 command("FnlApropos", "ConjureEval ,apropos <args>", { nargs = 1 })
 command("FnlComplete", "ConjureEval ,complete <args>", { nargs = 1 })
 command("FnlDoc", "ConjureEval ,doc <args>", { nargs = 1 })
-command("FnlReload", "ConjureEval ,complete <args>", { nargs = 1 })
+command("FnlFind", "ConjureEval ,find <args>", { nargs = 1 })
+command("FnlReload", "ConjureEval ,reload <args>", { nargs = 1 })
