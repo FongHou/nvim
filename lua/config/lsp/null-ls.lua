@@ -9,6 +9,7 @@ nls.setup({
     -- nls.builtins.formatting.prettier.with({
     --   extra_args = { "--single-quote", "false" },
     -- }),
+    nls.builtins.diagnostics.cfn_lint,
     nls.builtins.formatting.deno_fmt,
     nls.builtins.formatting.terraform_fmt,
     nls.builtins.formatting.black,
