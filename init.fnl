@@ -39,9 +39,9 @@
 (g! :send_disable_mapping true)
 (g! :send_multiline {:ghci {:begin ":{\n" :end "\n:}\n" :newline "\n"}})
 
-(nmap! [:silent :desc "Send to repl"] ",$" "<Plug>Send$")
-(nmap! [:silent :desc "Send to repl"] ",;" "<Plug>SendLine")
-(vmap! [:silent :desc "Send to repl"] ",;" "<Plug>Send")
+(map! :n [:silent :desc "Send to repl"] ",$" "<Plug>Send$")
+(map! :n [:silent :desc "Send to repl"] ",;" "<Plug>SendLine")
+(map! :v [:silent :desc "Send to repl"] ",;" "<Plug>Send")
 
 (command! [:nargs 1] "Repl" ":call g:send_target.send(['<args>'])")
 
