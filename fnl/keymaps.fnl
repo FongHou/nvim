@@ -15,6 +15,6 @@
       "st" (partial (. (require :leap-ast) :leap)))
 
 ;; send-to-term
-(map! :n [:silent :desc "Send to repl"] ",$" "<Plug>Send$")
-(map! :n [:silent :desc "Send to repl"] ",;" "<Plug>SendLine")
-(map! :v [:silent :desc "Send to repl"] ",;" "<Plug>Send")
+(map! :n [:silent :desc "Send line to repl"] ",$" "<Plug>Send$")
+(map! :n [:silent :desc "Send line to repl"] ",;" "<Plug>SendLine")
+(map! :v [:silent :desc "Send selected to repl"] ",;" "<Plug>Send")

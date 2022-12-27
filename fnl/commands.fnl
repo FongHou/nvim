@@ -9,11 +9,3 @@
 (augroup! :HLSearch
   (au! :CmdlineEnter ["/" "?"] "set hlsearch")
   (au! :CmdlineLeave ["/" "?"] "set nohlsearch"))
-
-(local parinfer (require :parinfer))
-
-(augroup! :SetupParinfer
-  [:FileType [:fennel :clojure]
-   (fn []
-     (parinfer.setup! {:trail_highlight false})
-     (parinfer.attach-current-buf!))])

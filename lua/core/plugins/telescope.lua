@@ -8,6 +8,7 @@ local M = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "ptethng/telescope-makefile",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
 }
 
@@ -107,12 +108,12 @@ function M.config()
       scroll_strategy = "cycle",
       selection_strategy = "reset",
       sorting_strategy = "descending",
-      layout_strategy = "vertical",
+      layout_strategy = "flex",
       layout_config = {
         width = 0.95,
         height = 0.85,
-        -- preview_cutoff = 120,
-        prompt_position = "top",
+        preview_cutoff = 20,
+        prompt_position = "bottom",
         horizontal = {
           preview_width = function(_, cols, _)
             if cols > 200 then
@@ -134,6 +135,7 @@ function M.config()
     },
   })
 
+  telescope.load_extension("fzf")
   telescope.load_extension("projects")
   telescope.load_extension("zoxide")
   telescope.load_extension("heading")

@@ -15,8 +15,8 @@ map("v", "p", '"_dp', default_options)
 map("v", "P", '"_dP', default_options)
 
 -- Tab switch buffer
-map("n", "<tab>", ":bnext<CR>", default_options)
-map("n", "<S-tab>", ":bprev<CR>", default_options)
+map("n", "<tab>", require("harpoon.ui").nav_next, default_options)
+map("n", "<S-tab>", require("harpoon.ui").nav_prev, default_options)
 
 -- Cancel search highlighting with ESC
 map("n", "<esc>", ":nohlsearch<Bar>:echo<CR>", default_options)
@@ -44,15 +44,20 @@ wk.register({
   sr = "Replace surrounding",
   sF = "Find left surrounding",
   sf = "Replace right surrounding",
-  ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
-  st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 
 -- Register leader based mappings
 wk.register({
-  ["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
+  ["<tab>"] = {
+    require("harpoon.ui").toggle_quick_menu,
+    "List Harpoon buffers"
+  },
   b = {
     name = "Buffers",
+    a = {
+      require("harpoon.mark").add_file,
+      "Add Harpoon buffer"
+    },
     b = {
       "<cmd>Telescope buffers<cr>",
       "Find buffer",
