@@ -1,12 +1,11 @@
 local M = {
   "Olical/conjure",
-  ft = { "clojure", "fennel", "lua", "python" }
+  ft = { "clojure", "fennel", "lua" },
   dependencies = {
-    { "eraserhd/parinfer-rust", build = "cargo build --release" },
-    "harrygallagher4/nvim-parinfer-rust",
     "PaterJason/cmp-conjure",
-    "tpope/vim-repeat",
     "m00qek/baleia.nvim",
+    "harrygallagher4/nvim-parinfer-rust",
+    { "eraserhd/parinfer-rust", build = "cargo build --release" },
   },
 }
 
@@ -18,7 +17,9 @@ function M.init()
   vim.g["conjure#mapping#eval_motion"] = ","
   vim.g["conjure#mapping#eval_visual"] = ","
   vim.g["conjure#mapping#doc_word"] = "vd"
+end
 
+function M.config()
   local wk = require("which-key")
   wk.register({
     c = { "connect" },
@@ -29,17 +30,15 @@ function M.init()
     t = { "test" },
     v = { "view" },
   }, { prefix = "<localleader>", mode = "n", silent = true })
-end
 
-function M.config()
-  vim.api.nvim_create_autocmd( {"BufEnter", "BufWinEnter"},
-    { pattern = {"*.clj*", "*.fnl"}
-      callback = function()
-        local mod = require("parinfer")
-        mod.setup{trail_highlight = false}
-        mod.attach_current_buf()
-      end}
-  )
+  local baleia = require("baleia").setup({ line_starts_at = 3 })
+  vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = { "conjure-log-*" },
+    callback = function()
+      vim.diagnostic.disable(0)
+      baleia.automatically(vim.api.nvim_get_current_buf())
+    end,
+  })
 end
 
 return M

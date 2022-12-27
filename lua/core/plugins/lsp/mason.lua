@@ -57,6 +57,8 @@ require("mason-tool-installer").setup({
     "pyright",
     "terraform-ls",
     "yaml-language-server",
+    "clangd",
+    "clojure-lsp",
     -- Formatter
     "black",
     "prettier",

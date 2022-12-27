@@ -5,6 +5,10 @@ vo.softtabstop = 4
 
 require("core.plugins.dap.dap").setup()
 
+local function options(desc)
+  return { buffer = true, noremap = true, silent = true, desc = desc }
+end
+
 local map = vim.keymap.set
 map("n", ",ri", ":Repl %pinfo <C-r>=expand('<cexpr>')<CR><CR>", options("ipython %info"))
 map("v", ",ri", 'y :Repl %pinfo <C-r>=@"<CR><CR>', options("ipython %info"))

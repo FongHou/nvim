@@ -8,6 +8,7 @@ local M = {
     "hrsh7th/cmp-calc",
     "lukas-reineke/cmp-rg",
     "hrsh7th/cmp-nvim-lsp-signature-help",
+    "quangnguyen30192/cmp-nvim-tags",
   },
 }
 
@@ -28,6 +29,8 @@ function M.config()
           path = "PATH",
           luasnip = "SNIP",
           calc = "CALC",
+          conjure = "CONJ",
+          tags = "TAG",
         },
       }),
     },
@@ -61,12 +64,20 @@ function M.config()
     sources = {
       { name = "nvim_lsp" },
       { name = "nvim_lsp_signature_help" },
+      { name = "conjure" },
+      { name = "tags" },
       { name = "buffer", keyword_length = 5 },
       { name = "luasnip" },
       { name = "calc" },
       { name = "path" },
       { name = "rg", keyword_length = 5 },
     },
+    before = function(entry, vim_item)
+      vim_item.dup = ({
+        conjure = 0,
+      })[entry.source.name] or 0
+      return vim_item
+    end,
   })
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

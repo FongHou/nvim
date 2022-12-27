@@ -12,6 +12,8 @@ capabilities.textDocument.foldingRange = {
 }
 
 local servers = {
+  "clangd",
+  "clojure_lsp",
   "bashls",
   "dockerls",
   "jsonls",

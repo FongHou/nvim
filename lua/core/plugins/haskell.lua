@@ -1,11 +1,11 @@
 local M = {
-  "fonghou/fzf-hoogle.vim",
-  ft = "haskell",
+ "junegunn/fzf",
   dependencies = {
-   "junegunn/fzf",
-   "quangnguyen30192/cmp-nvim-tags",
+   "fonghou/fzf-hoogle.vim",
+   "fonghou/tmuxjump.vim",
    "preservim/tagbar", cmd = "TagbarToggle",
   },
+  ft = "haskell",
 }
 
 return M
