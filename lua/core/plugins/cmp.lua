@@ -14,6 +14,7 @@ local M = {
 
 function M.config()
   local cmp = require("cmp")
+  local compare = require("cmp.config.compare")
   local lspkind = require("lspkind")
 
   cmp.setup({
@@ -32,6 +33,12 @@ function M.config()
           conjure = "CONJ",
           tags = "TAG",
         },
+        before = function(entry, vim_item)
+          vim_item.dup = ({
+            conjure = 0,
+          })[entry.source.name] or 0
+          return vim_item
+        end,
       }),
     },
     snippet = {
@@ -61,23 +68,32 @@ function M.config()
         end
       end, { "i", "s" }),
     },
+    sorting = {
+      priority_weight = 2,
+      comparators = {
+        compare.offset,
+        compare.exact,
+        -- compare.scopes,
+        compare.score,
+        compare.recently_used,
+        compare.locality,
+        -- compare.kind,
+        compare.sort_text,
+        compare.length,
+        compare.order,
+      },
+    },
     sources = {
       { name = "nvim_lsp" },
       { name = "nvim_lsp_signature_help" },
       { name = "conjure" },
-      { name = "tags" },
       { name = "buffer", keyword_length = 5 },
       { name = "luasnip" },
       { name = "calc" },
       { name = "path" },
+      { name = "tags" },
       { name = "rg", keyword_length = 5 },
     },
-    before = function(entry, vim_item)
-      vim_item.dup = ({
-        conjure = 0,
-      })[entry.source.name] or 0
-      return vim_item
-    end,
   })
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

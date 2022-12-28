@@ -5,9 +5,10 @@ nls.setup({
   sources = {
     nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
     nls.builtins.diagnostics.eslint_d,
-    nls.builtins.formatting.prettier.with({
-      extra_args = { "--single-quote", "false" },
-    }),
+    -- nls.builtins.formatting.prettier.with({
+    --   extra_args = { "--single-quote", "false" },
+    -- }),
+    nls.builtins.formatting.deno_fmt,
     nls.builtins.formatting.terraform_fmt,
     nls.builtins.formatting.black,
     nls.builtins.formatting.goimports,
@@ -18,6 +19,8 @@ nls.setup({
     nls.builtins.code_actions.shellcheck,
     nls.builtins.diagnostics.vale,
     nls.builtins.code_actions.gitsigns,
+    nls.builtins.formatting.cabal_fmt,
+    nls.builtins.formatting.fourmolu,
   },
   on_attach = function(client, bufnr)
     local wk = require("which-key")

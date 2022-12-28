@@ -35,3 +35,7 @@ autocmd("BufEnter", {
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "nbb nrepl-server :port $port"
   end,
 })
+
+local autopairs = require("nvim-autopairs")
+autopairs.remove_rule("'")
+autopairs.remove_rule("`")

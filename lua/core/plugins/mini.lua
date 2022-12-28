@@ -51,7 +51,7 @@ function M.config()
     content = {
       -- Content for active window
       active = function()
-        -- local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+        local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
         local git = MiniStatusline.section_git({ trunc_width = 75 })
         local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
         local filename = MiniStatusline.section_filename({ trunc_width = 140 })
