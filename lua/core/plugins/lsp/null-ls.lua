@@ -21,6 +21,8 @@ nls.setup({
     nls.builtins.code_actions.gitsigns,
     nls.builtins.formatting.cabal_fmt,
     nls.builtins.formatting.fourmolu,
+    require("core.plugins.haskell").ghcid(),
+    require("core.plugins.haskell").hlint(),
   },
   on_attach = function(client, bufnr)
     local wk = require("which-key")

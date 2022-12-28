@@ -95,9 +95,11 @@ function M.custom_lsp_attach(client, bufnr)
   -- handle_docker_compose(bufnr)
   -- handle_helm_releases(bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
   vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", bufopts)
-  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
+  vim.keymap.set("n", "[e", "<cmd>lua vim.diagnostic.goto_prev()<cr>", bufopts)
+  vim.keymap.set("n", "]e", "<cmd>lua vim.diagnostic.goto_next()<cr>", bufopts)
   local wk = require("which-key")
   local default_options = { silent = true }
   wk.register({
@@ -115,7 +117,7 @@ function M.custom_lsp_attach(client, bufnr)
       -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
       i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
       k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
-      l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
+      l = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Line Diagnostics" },
       n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
       p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
       q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix Diagnostics" },

@@ -50,13 +50,13 @@ wk.register({
 wk.register({
   ["<tab>"] = {
     require("harpoon.ui").toggle_quick_menu,
-    "List Harpoon buffers"
+    "List Harpoon buffers",
   },
   b = {
     name = "Buffers",
     a = {
       require("harpoon.mark").add_file,
-      "Add Harpoon buffer"
+      "Add Harpoon buffer",
     },
     b = {
       "<cmd>Telescope buffers<cr>",
@@ -81,7 +81,7 @@ wk.register({
     name = "Misc",
     c = { "<cmd>lua require('core.utils.functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
-    d = { "<cmd>lua require('core.config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
+    d = { "<cmd>lua require('core.plugins.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     o = { "Options" },
     p = { "<cmd>Lazy check<cr>", "Lazy check" },
@@ -89,9 +89,9 @@ wk.register({
   },
   q = {
     name = "Quickfix",
-    j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
-    k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", "Toggle quickfix list" },
+    j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
+    k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
+    q = { "<cmd>lua vim.diagnostic.setqflist()<cr>", "Quickfix Diagnostics" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   -- hydra heads
