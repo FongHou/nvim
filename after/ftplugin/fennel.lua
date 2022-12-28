@@ -1,3 +1,5 @@
+vim.opt_local.lisp = true
+
 local wk = require("which-key")
 wk.register({
   c = { "compile" },

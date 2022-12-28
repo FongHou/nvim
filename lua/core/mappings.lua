@@ -50,14 +50,10 @@ wk.register({
 wk.register({
   ["<tab>"] = {
     require("harpoon.ui").toggle_quick_menu,
-    "List Harpoon buffers",
+    "List marked buffers",
   },
   b = {
     name = "Buffers",
-    a = {
-      require("harpoon.mark").add_file,
-      "Add Harpoon buffer",
-    },
     b = {
       "<cmd>Telescope buffers<cr>",
       "Find buffer",
@@ -67,6 +63,10 @@ wk.register({
       "Close all but the current buffer",
     },
     d = { "<cmd>Bdelete<cr>", "Close buffer" },
+    m = {
+      require("harpoon.mark").add_file,
+      "Mark buffer",
+    },
   },
   f = {
     name = "Files",

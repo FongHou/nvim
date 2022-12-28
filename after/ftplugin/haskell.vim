@@ -37,6 +37,10 @@ nnoremap <silent><nowait> <localleader>t   :Repl :type +d <C-r>=expand('<cexpr>'
 vnoremap <silent><nowait> <localleader>t   <Cmd>call GHC_type_at()<CR>
 vnoremap <silent><nowait> <localleader>T y :Repl :type <C-r>=@"<CR><CR>
 
+inoremap <buffer><silent><C-k>  <C-o>:HaskComplete import <C-r>=expand('<cexpr>')<CR><CR>
+
+command -nargs=1 -complete=tag HaskComplete Repl :complete repl 1-15 "<args>"
+
 function! GHC_type_at()
   let file = expand('%:p:.')
   let [startln, startcol] = getpos('v')[1:2]
@@ -50,6 +54,7 @@ function! GHC_type_at()
   :execute 'Repl :type-at ' . join([file, startln, startcol, endln, endcol], ' ')
 endfunction
 
+
 let g:hoogle_open_link = 'edge'
 let g:hoogle_fzf_preview = 'down:40%:wrap'
 let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
@@ -57,7 +62,7 @@ let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
 setlocal tags+=.haskell.tags
 
 " cabal install fast-tags
-command HaskellTags silent !find ~/.hackage .hackage -name '*.cabal' -print0 | xargs -0 fast-tags --cabal --qualified -o .haskell.tags
+command HaskTags silent !find ~/.hackage .hackage -name '*.cabal' -print0 | xargs -0 fast-tags --cabal --qualified -o .haskell.tags
 
 " cabal install ghc-tags
 augroup Haskell
