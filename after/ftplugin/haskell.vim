@@ -37,7 +37,8 @@ nnoremap <silent><nowait> <localleader>t   :Repl :type +d <C-r>=expand('<cexpr>'
 vnoremap <silent><nowait> <localleader>t   <Cmd>call GHC_type_at()<CR>
 vnoremap <silent><nowait> <localleader>T y :Repl :type <C-r>=@"<CR><CR>
 
-inoremap <buffer><silent><C-k>  <C-o>:HaskComplete import <C-r>=expand('<cexpr>')<CR><CR>
+inoremap <buffer><silent><C-k>  <C-o>:HaskComplete <C-r>=expand('<cexpr>')<CR><CR>
+inoremap <buffer><silent><C-h>  <C-o>:HaskComplete import <C-r>=expand('<cexpr>')<CR><CR>
 
 command -nargs=1 -complete=tag HaskComplete Repl :complete repl 1-15 "<args>"
 

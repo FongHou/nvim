@@ -26,7 +26,7 @@ M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- due to causing lags with live_grep in some circumstances
 -- M.disable_colorizer = false
 -- Noice heavily changes the Neovim UI ...
-M.enable_noice = true
+M.enable_noice = false
 -- Disable winbar with nvim-navic location
 M.disable_winbar = false
 -- Number of recent files shown in dashboard

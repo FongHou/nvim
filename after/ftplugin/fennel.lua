@@ -13,6 +13,13 @@ local map = vim.keymap.set
 map("n", ",cc", "<Cmd>FnlCompileBuffer<CR>", options("Compile buffer"))
 map("n", ",cl", "<Cmd>FnlPeek<CR>", options("Peek Lua output"))
 map("n", ",co", "<Cmd>FnlGotoOutput<CR>", options("Goto Lua output"))
+map(
+  "i",
+  "<C-k>",
+  -- need <Left>...<Right> here to expand <cexpr> in lisp parens
+  "<Left><C-o>:ConjureEval ,complete <C-r>=expand('<cexpr>')<CR><CR><Right>",
+  options("Complete symbol")
+)
 
 local command = vim.api.nvim_create_user_command
 command("FnlApropos", "ConjureEval ,apropos <args>", { nargs = 1 })
