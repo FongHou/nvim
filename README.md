@@ -166,7 +166,15 @@ There are some tools that are required in order to use some features/plugins:
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
+
+For neo-tree delete functionality:
+
 - [trash-cli](https://github.com/andreafrancia/trash-cli)
+
+For Latex functionality:
+
+- [Tectonic](https://tectonic-typesetting.github.io/en-US/)
+- [Skim](https://skim-app.sourceforge.io/)
 
 ### LSPs, Formatting, Linters, DAP
 
@@ -207,10 +215,12 @@ All other dependencies are managed by [Mason](https://github.com/williamboman/ma
 | i/s  | \<c-k\>                | Luasnip backward                                       |
 | i    | \<c-h\>                | Luasnip select choice                                  |
 | n    | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)     |
-| i    | \<c-l\>                | Move out of closing bracket                            |
+| i    | \<c-l\>                | Move out of closing brackets                           |
 | n    | \<CR\>                 | Start incremental selection                            |
 | v    | \<Tab\>                | Increment selection                                    |
 | v    | \<S-Tab\>              | Decrement selection                                    |
+| v    | \<S-j\>                | Move selected lines down                               |
+| v    | \<S-k\>                | Move selected lines up                                 |
 
 ## Structure
 
