@@ -11,12 +11,11 @@ end
 
 local map = vim.keymap.set
 map("n", ",i1", ":ConjureEval (tap> *1)<CR>", options("tap *1"))
-map("n", ",i2", ":ConjureEval (tap> *2)<CR>", options("tap *2"))
-map("n", ",i3", ":ConjureEval (tap> *3)<CR>", options("tap *3"))
-map("n", ",ie", ":ConjureEval (tap> (Throwable->map *e))<CR>", options("tap *e"))
 map("n", ",in", ":ConjureEval (tap> (-> *ns* (clojure.datafy/datafy) :publics))<CR>", options("tap *ns*"))
-map("n", ",is", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("tap scope-capture"))
-map("n", ",lp", ":ConjureEval (def portal (portal.api/open))<CR>", options("Portal open"))
+map("n", ",is", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("defsc"))
+map("n", ",iu", ":ConjureEval (eval `(sc.api/undefsc ~(sc.api/last-ep-id)))<CR>", options("undefsc"))
+map("n", ",id", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
+map("n", ",ip", ":ConjureEval (def portal (portal.api/open))<CR>", options("portal"))
 map("v", ",r", 'y :ConjureEval #reveal/inspect <C-r>=@"<CR><CR>', options("Reveal selected form"))
 map("v", ",t", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("Trace selected form"))
 
