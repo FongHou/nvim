@@ -18,27 +18,25 @@ map("n", ",in", ":ConjureEval (tap> (-> *ns* (clojure.datafy/datafy) :publics))<
 map(
   "n",
   ",ip",
-  [[:ConjureEval (do (in-ns 'user)
-                     (def portal ((requiring-resolve 'portal.api/open)))
-                     (add-tap (requiring-resolve 'portal.api/submit)))<CR>]],
+  [[:ConjureEval (do (in-ns 'user) (add-tap (requiring-resolve 'portal.api/submit)) (def portal ((requiring-resolve 'portal.api/open))))<CR>]],
   options("portal")
 )
 
 -- flow-storm-debugger
-map("v", ",i", 'y :ConjureEval #trace <C-r>=@"<CR><CR>', options("Instrument form in flow-storm-debugger"))
-map("v", ",t", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("Trace form in flow-storm-debugger"))
+map("v", ",t", 'y :ConjureEval #trace <C-r>=@"<CR><CR>', options("trace form"))
+map("v", ",r", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("rtrace form"))
 
 -- scope-capture
-map("n", ",ic", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("sc/defcs"))
+map("n", ",iv", ":ConjureEval (eval `(sc.api/defsc ~(sc.api/last-ep-id)))<CR>", options("sc/defsc"))
 map("n", ",iu", ":ConjureEval (eval `(sc.api/undefsc ~(sc.api/last-ep-id)))<CR>", options("sc/undefsc"))
-map("n", ",id", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
+map("n", ",ix", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
 -- data_readers.clj: {sc/letsc user/read-letsc}
 --[[
 (in-ns 'user)
 (defn read-letsc [form]
   `(sc.api/letsc ~((requiring-resolve 'sc.api/last-ep-id)) ~form))
 --]]
-map("v", ",e", 'y :ConjureEval #sc/letsc <C-r>=@"<CR><CR>', options("Eval form in scope-capture"))
+map("v", ",e", 'y :ConjureEval #sc/letsc <C-r>=@"<CR><CR>', options("letsc form"))
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufEnter", {
