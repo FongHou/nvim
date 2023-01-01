@@ -13,17 +13,32 @@ local map = vim.keymap.set
 map("n", ",i1", ":ConjureEval (tap> *1)<CR>", options("tap *1"))
 map("n", ",ie", ":ConjureEval (tap> (Throwable->map *e))<CR>", options("tap *e"))
 map("n", ",in", ":ConjureEval (tap> (-> *ns* (clojure.datafy/datafy) :publics))<CR>", options("tap *ns*"))
-map("n", ",ic", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("sc/defcs"))
-map("n", ",iu", ":ConjureEval (eval `(sc.api/undefsc ~(sc.api/last-ep-id)))<CR>", options("sc/undefsc"))
-map("n", ",id", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
-map("v", ",r", 'y :ConjureEval #reveal/inspect <C-r>=@"<CR><CR>', options("Reveal selected form"))
-map("v", ",t", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("Trace selected form"))
+
+-- portal
 map(
   "n",
   ",ip",
-  ":ConjureEval (do (in-ns 'user) (def portal ((requiring-resolve 'portal.api/open))) (add-tap (requiring-resolve 'portal.api/submit)))<CR>",
+  [[:ConjureEval (do (in-ns 'user)
+                     (def portal ((requiring-resolve 'portal.api/open)))
+                     (add-tap (requiring-resolve 'portal.api/submit)))<CR>]],
   options("portal")
 )
+
+-- flow-storm-debugger
+map("v", ",i", 'y :ConjureEval #trace <C-r>=@"<CR><CR>', options("Instrument form in flow-storm-debugger"))
+map("v", ",t", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("Trace form in flow-storm-debugger"))
+
+-- scope-capture
+map("n", ",ic", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("sc/defcs"))
+map("n", ",iu", ":ConjureEval (eval `(sc.api/undefsc ~(sc.api/last-ep-id)))<CR>", options("sc/undefsc"))
+map("n", ",id", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
+-- data_readers.clj: {sc/letsc user/read-letsc}
+--[[
+(in-ns 'user)
+(defn read-letsc [form]
+  `(sc.api/letsc ~((requiring-resolve 'sc.api/last-ep-id)) ~form))
+--]]
+map("v", ",e", 'y :ConjureEval #sc/letsc <C-r>=@"<CR><CR>', options("Eval form in scope-capture"))
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufEnter", {
