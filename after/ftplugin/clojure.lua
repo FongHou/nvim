@@ -42,8 +42,8 @@ map(
 )
 
 -- flow-storm-debugger
-map("v", ",t", 'y :<C-u>ConjureEval #trace <C-r>=@"<CR><CR>', options("trace form"))
-map("v", ",r", 'y :<C-u>ConjureEval #rtrace <C-r>=@"<CR><CR>', options("rtrace form"))
+map("v", ",t", 'y :<C-u>ConjureEval (flow-storm.api/instrument* {} <C-r>=@"<CR>)<CR>', options("trace form"))
+map("v", ",r", 'y :<C-u>ConjureEval (flow-storm.api/runi {} <C-r>=@"<CR>)<CR>', options("rtrace form"))
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufEnter", {
