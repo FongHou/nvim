@@ -5,18 +5,19 @@ local navic = require("nvim-navic")
 M = {}
 
 M.winbar_filetype_exclude = {
-  "help",
-  "startify",
-  "dashboard",
-  "packer",
-  "lazy",
-  "neogitstatus",
   "NvimTree",
+  "Outline",
   "Trouble",
   "alpha",
+  "dashboard",
+  "help",
+  "lazy",
   "lir",
-  "Outline",
+  "neogitstatus",
+  "oil",
+  "packer",
   "spectre_panel",
+  "startify",
   "toggleterm",
 }
 
