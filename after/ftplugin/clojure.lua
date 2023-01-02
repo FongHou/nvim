@@ -14,7 +14,17 @@ map("n", ",i1", ":ConjureEval (tap> *1)<CR>", options("tap *1"))
 map("n", ",ie", ":ConjureEval (tap> (Throwable->map *e))<CR>", options("tap *e"))
 map("n", ",in", ":ConjureEval (tap> (-> *ns* (clojure.datafy/datafy) :publics))<CR>", options("tap *ns*"))
 
--- portal
+map("n", ",is", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("sc/defsc"))
+map("n", ",iu", ":ConjureEval (eval `(sc.api/undefsc ~(sc.api/last-ep-id)))<CR>", options("sc/undefsc"))
+map("n", ",ix", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
+
+-- prepare portal
+-- scope-capture data_readers.clj {sc/letsc user/read-letsc}
+--[[
+(in-ns 'user)
+(defn read-letsc [form]
+  `(sc.api/letsc ~((requiring-resolve 'sc.api/last-ep-id)) ~form))
+--]]
 map(
   "n",
   ",ip",
@@ -22,21 +32,18 @@ map(
   options("portal")
 )
 
--- flow-storm-debugger
-map("v", ",t", 'y :ConjureEval #trace <C-r>=@"<CR><CR>', options("trace form"))
-map("v", ",r", 'y :ConjureEval #rtrace <C-r>=@"<CR><CR>', options("rtrace form"))
+map("v", ",e", 'y :<C-u>ConjureEval #sc/letsc <C-r>=@"<CR><CR>', options("letsc form"))
+-- use this in babashka
+map(
+  "v",
+  ",E",
+  [[y :<C-u>ConjureEval (binding [*data-readers* (assoc *data-readers* 'sc/letsc #'user/read-letsc)] (eval (read-string "#sc/letsc <C-r>=substitute(getreg('"'), '"', '\\"', 'g')<CR>")))<CR>]],
+  options("letsc form")
+)
 
--- scope-capture
--- data_readers.clj: {sc/letsc user/read-letsc}
---[[
-(in-ns 'user)
-(defn read-letsc [form]
-  `(sc.api/letsc ~((requiring-resolve 'sc.api/last-ep-id)) ~form))
---]]
-map("v", ",e", 'y :ConjureEval #sc/letsc <C-r>=@"<CR><CR>', options("letsc form"))
-map("n", ",is", ":ConjureEval (tap> (eval `(sc.api/defsc ~(sc.api/last-ep-id))))<CR>", options("sc/defsc"))
-map("n", ",iu", ":ConjureEval (eval `(sc.api/undefsc ~(sc.api/last-ep-id)))<CR>", options("sc/undefsc"))
-map("n", ",ix", ":ConjureEval (sc.api/dispose-all!)<CR>", options("sc/dispose-all!"))
+-- flow-storm-debugger
+map("v", ",t", 'y :<C-u>ConjureEval #trace <C-r>=@"<CR><CR>', options("trace form"))
+map("v", ",r", 'y :<C-u>ConjureEval #rtrace <C-r>=@"<CR><CR>', options("rtrace form"))
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufEnter", {
