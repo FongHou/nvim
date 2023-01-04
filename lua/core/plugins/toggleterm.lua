@@ -1,6 +1,20 @@
 local M = {
   "akinsho/nvim-toggleterm.lua",
+  dependencies = {
+    "mtikekar/nvim-send-to-term",
+  },
 }
+
+function M.init()
+  vim.g.send_disable_mapping = true
+  vim.g.send_multiline = {
+    ghci = {
+      begin = ":{\n",
+      ["end"] = "\n:}\n",
+      newline = "\n",
+    },
+  }
+end
 
 function M.config()
   local map = vim.api.nvim_set_keymap

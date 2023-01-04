@@ -1,10 +1,9 @@
 local M = {
-  "ThePrimeagen/harpoon",
+  "rcarriga/nvim-notify",
   dependencies = {
     "mbbill/undotree",
     "mg979/vim-visual-multi",
     "preservim/tagbar",
-    "rcarriga/nvim-notify",
     "tpope/vim-repeat",
   },
 }

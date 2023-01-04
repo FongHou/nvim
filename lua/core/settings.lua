@@ -60,10 +60,14 @@ M.treesitter_ensure_installed = {
   "toml",
   "vim",
   "yaml",
+  "clojure",
+  "fennel",
 }
 
 M.mason_tool_installer_ensure_installed = {
   -- LSP
+  "clojure-lsp",
+  "clangd",
   "bash-language-server",
   "dockerfile-language-server",
   "json-lsp",
