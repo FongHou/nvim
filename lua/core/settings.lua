@@ -62,12 +62,12 @@ M.treesitter_ensure_installed = {
   "yaml",
   "clojure",
   "fennel",
+  "haskell",
 }
 
 M.mason_tool_installer_ensure_installed = {
   -- LSP
   "clojure-lsp",
-  "clangd",
   "bash-language-server",
   "dockerfile-language-server",
   "json-lsp",
