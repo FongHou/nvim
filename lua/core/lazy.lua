@@ -15,6 +15,7 @@ vim.opt.runtimepath:prepend(lazypath)
 -- Must be before lazy
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
+vim.g.maploalleader = ","
 
 require("lazy").setup("core.plugins", {
   -- defaults = { lazy = true },

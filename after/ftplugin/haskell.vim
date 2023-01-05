@@ -1,3 +1,5 @@
+setlocal iskeyword+=.
+
 lua <<WKMAP
 
 local wk = require("which-key")
