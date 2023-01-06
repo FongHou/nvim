@@ -1,6 +1,4 @@
-setlocal iskeyword+=.
-
-lua <<WKMAP
+lua <<LUA
 
 local wk = require("which-key")
 local keys = {
@@ -17,7 +15,9 @@ local keys = {
 wk.register(keys, {mode = "n", prefix = "<localleader>", silent = true})
 wk.register(keys, {mode = "v", prefix = "<localleader>", silent = true})
 
-WKMAP
+LUA
+
+setlocal iskeyword+=.
 
 nnoremap <silent><nowait> <localleader>l :w <bar>:Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
 nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>

@@ -1,5 +1,7 @@
-(import-macros {: map! : unmap! : <Cmd> : <C-u>}
+(import-macros {: g! : map! : unmap! : <Cmd> : <C-u>}
                :nvim-laurel.macros)
+
+(g! :maplocalleader ",")
 
 ;; Leap
 (local leap (require :leap))
