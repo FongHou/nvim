@@ -33,13 +33,6 @@ map(
 )
 
 map("v", ",e", 'y :<C-u>ConjureEval #sc/letsc <C-r>=@"<CR><CR>', options("letsc form"))
--- use this in babashka
-map(
-  "v",
-  ",E",
-  [[y :<C-u>ConjureEval (binding [*data-readers* (assoc *data-readers* 'sc/letsc #'user/read-letsc)] (eval (read-string "#sc/letsc <C-r>=substitute(getreg('"'), '"', '\\"', 'g')<CR>")))<CR>]],
-  options("letsc form")
-)
 
 -- flow-storm-debugger
 map("v", ",t", 'y :<C-u>ConjureEval (flow-storm.api/instrument* {} <C-r>=@"<CR>)<CR>', options("trace form"))
