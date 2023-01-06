@@ -48,9 +48,10 @@ for _, lsp in ipairs(servers) do
         config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
       end
     end,
-    root_dir = root_pattern(lsp),
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
+    root_dir = root_pattern(lsp),
+    single_file_support = false,
     settings = {
       json = languages.json,
       Lua = languages.lua,
@@ -59,7 +60,6 @@ for _, lsp in ipairs(servers) do
       texlab = languages.tex,
       yaml = languages.yaml,
     },
-    single_file_support = false,
   })
 end
 
