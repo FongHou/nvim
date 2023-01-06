@@ -59,6 +59,7 @@ for _, lsp in ipairs(servers) do
       texlab = languages.tex,
       yaml = languages.yaml,
     },
+    single_file_support = false,
   })
 end
 
