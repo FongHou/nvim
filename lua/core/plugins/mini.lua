@@ -81,6 +81,7 @@ function M.config()
   })
 
   require("mini.align").setup()
+  require("mini.test").setup()
 end
 
 return M
