@@ -14,6 +14,12 @@ function M.init()
       newline = "\n",
     },
   }
+  vim.cmd([[
+    command -nargs=1 Repl :call g:send_target.send(['<args>'])
+    nnoremap <silent><nowait> ,$   <Plug>Send$
+    nnoremap <silent><nowait> ,;   <Plug>SendLine
+    xnoremap <silent><nowait> ,;   <Plug>Send
+  ]])
 end
 
 function M.config()

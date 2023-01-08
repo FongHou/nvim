@@ -8,8 +8,15 @@ local M = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "ptethng/telescope-makefile",
+    "preservim/tagbar",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
+}
+
+M.keys = {
+  { "<leader><space>", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
+  { "g]", "<cmd>Telescope tags<cr>", desc = "Telescope tags" },
+  { "g[", "<cmd>TagbarToggle<cr>", desc = "Toggle tagbar" },
 }
 
 function M.config()
