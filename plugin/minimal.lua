@@ -17,7 +17,9 @@ local function bootstrap(url)
 end
 
 bootstrap("https://github.com/aileot/nvim-laurel")
-
+bootstrap("https://github.com/ggandor/leap.nvim")
+bootstrap("https://github.com/ggandor/leap-ast.nvim")
+bootstrap("https://github.com/nvim-treesitter/nvim-treesitter")
 bootstrap("https://github.com/udayvir-singh/tangerine.nvim")
 
 require("tangerine").setup({
@@ -37,5 +39,3 @@ require("tangerine").setup({
     hooks = { "onsave", "oninit" },
   },
 })
-
-require("core")

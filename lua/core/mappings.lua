@@ -14,10 +14,6 @@ map("v", ">", ">gv", default_options)
 map("v", "p", '"_dp', default_options)
 map("v", "P", '"_dP', default_options)
 
--- Tab switch buffer
-map("n", "<tab>", require("harpoon.ui").nav_next, default_options)
-map("n", "<S-tab>", require("harpoon.ui").nav_prev, default_options)
-
 -- Cancel search highlighting with ESC
 map("n", "<esc>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
@@ -48,10 +44,6 @@ wk.register({
 
 -- Register leader based mappings
 wk.register({
-  ["<tab>"] = {
-    require("harpoon.ui").toggle_quick_menu,
-    "List marked buffers",
-  },
   b = {
     name = "Buffers",
     b = {
@@ -63,10 +55,6 @@ wk.register({
       "Close all but the current buffer",
     },
     d = { "<cmd>Bdelete<cr>", "Close buffer" },
-    m = {
-      require("harpoon.mark").add_file,
-      "Mark buffer",
-    },
   },
   f = {
     name = "Files",

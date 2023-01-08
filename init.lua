@@ -1,3 +1,8 @@
+-- vscode uses .init.fnl
+if vim.g.vscode then
+  return
+end
+
 -- References to ./lua/
 
 -- Load global functions
