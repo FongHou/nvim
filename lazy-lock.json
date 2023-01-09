@@ -94,7 +94,6 @@
   "urlview.nvim": { "branch": "main", "commit": "6a2f1ae05ba036ca1e9c505f4d58b9a188ef51bd" },
   "vim-fugitive": { "branch": "master", "commit": "99cdb88bc64063dc4656ae53496f06fb2a394cd4" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "vimtex": { "branch": "master", "commit": "e8c2c8087f810f0c67373d11d05b47c6a2800b98" },
   "which-key.nvim": { "branch": "main", "commit": "85f69b07afce4ea77c58ae9a3aeb4e6c918b4d34" },
   "windows.nvim": { "branch": "main", "commit": "a37b5d021afbe9baf741bb40818bd14604dde424" }
 }

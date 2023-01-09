@@ -19,12 +19,11 @@ local servers = {
   "denols",
   "dockerls",
   "jsonls",
-  "ltex",
   "marksman",
   "pyright",
+  "rust_analyzer",
   "sumneko_lua",
   "terraformls",
-  "texlab",
   "tsserver",
   "yamlls",
 }
@@ -55,9 +54,7 @@ for _, lsp in ipairs(servers) do
     settings = {
       json = languages.json,
       Lua = languages.lua,
-      ltex = languages.ltx,
       redhat = { telemetry = { enabled = false } },
-      texlab = languages.tex,
       yaml = languages.yaml,
     },
   })

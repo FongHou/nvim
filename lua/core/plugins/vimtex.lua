@@ -1,5 +1,6 @@
 local M = {
   "lervag/vimtex",
+  enabled = false,
   lazy = false,
 }
 
