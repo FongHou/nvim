@@ -2,7 +2,6 @@ local M = {
   "rcarriga/nvim-notify",
   dependencies = {
     "mbbill/undotree",
-    "mg979/vim-visual-multi",
     "tpope/vim-repeat",
   },
 }

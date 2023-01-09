@@ -6,6 +6,10 @@ local expr_options = { expr = true, silent = true }
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 
+-- center on half-page up or down
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
 -- better indenting
 map("v", "<", "<gv", default_options)
 map("v", ">", ">gv", default_options)
