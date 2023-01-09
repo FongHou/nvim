@@ -73,8 +73,6 @@ M.mason_tool_installer_ensure_installed = {
   "json-lsp",
   "marksman",
   "typescript-language-server",
-  "texlab",
-  "ltex-ls",
   "lua-language-server",
   "pyright",
   "terraform-ls",
@@ -87,7 +85,6 @@ M.mason_tool_installer_ensure_installed = {
   "eslint_d",
   "shellcheck",
   "tflint",
-  "vale",
   "yamllint",
   -- DAP
   "debugpy",
