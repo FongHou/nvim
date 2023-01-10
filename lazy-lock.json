@@ -23,7 +23,7 @@
   "fzf-hoogle.vim": { "branch": "master", "commit": "ca360c87a1ab045f787a3ec68c2766cb74d09ef7" },
   "gitsigns.nvim": { "branch": "main", "commit": "114362a85e51918ab2965181ffa31932c181f32f" },
   "go.nvim": { "branch": "master", "commit": "1f52335ea32689aa5947e56238bf02fcb23c95ee" },
-  "guihua.lua": { "branch": "master", "commit": "570a1ed9da14701292bb19de71fcdeee549fa92d" },
+  "guihua.lua": { "branch": "master", "commit": "9ab3b0d9a2f8cac97aaf7f3acc77de6e182749fd" },
   "harpoon": { "branch": "master", "commit": "21d0d1bfa3000e4384740bfaefa0ebc51c773786" },
   "hydra.nvim": { "branch": "master", "commit": "ea91aa820a6cecc57bde764bb23612fff26a15de" },
   "icon-picker.nvim": { "branch": "master", "commit": "0f3b2648f6f8e788bc8dfe37bc9bb18b565cfc3c" },

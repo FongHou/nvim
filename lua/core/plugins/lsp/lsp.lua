@@ -21,7 +21,6 @@ local servers = {
   "jsonls",
   "marksman",
   "pyright",
-  "rust_analyzer",
   "sumneko_lua",
   "terraformls",
   "tsserver",
