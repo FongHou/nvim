@@ -1,4 +1,4 @@
-vim.opt.iskeyword:append(".")
+vim.opt.iskeyword:append(".,:")
 
 local wk = require("which-key")
 wk.register({
