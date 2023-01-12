@@ -1,6 +1,6 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  -- cmd = "Telescope",
+  cmd = "Telescope",
   dependencies = {
     "jvgrootveld/telescope-zoxide",
     "crispgm/telescope-heading.nvim",
