@@ -10,6 +10,7 @@ local keys = {
     l = "ghci load",
     r = "ghci reload",
     t = "ghci type",
+    T = "ghci doctest",
   }
 
 wk.register(keys, {mode = "n", prefix = "<localleader>", silent = true})
@@ -18,6 +19,8 @@ wk.register(keys, {mode = "v", prefix = "<localleader>", silent = true})
 LUA
 
 setlocal iskeyword+=.
+
+nnoremap <silent><nowait> <localleader>T :w <bar>:Repl :doctest <C-r>=expand('%:p:.')<CR><CR>
 
 nnoremap <silent><nowait> <localleader>l :w <bar>:Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
 nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>
