@@ -68,7 +68,7 @@ command HaskTags silent !find ~/.hackage .hackage -name '*.cabal' -print0 | xarg
 " cabal install ghc-tags
 augroup Haskell
   autocmd!
-  au BufWritePost *.hs  silent !ghc-tags -c
+  au BufWritePost *.hs  silent !ghc-tags -c &
 augroup END
 
 " cabal install hasktags
