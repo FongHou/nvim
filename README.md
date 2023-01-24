@@ -88,7 +88,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Fully featured status line via [mini.nvim](https://github.com/echasnovski/mini.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
-- Better writing with [vale](https://vale.sh/) integration via [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- Better writing with [ltex-ls](https://valentjn.github.io/ltex/index.html)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), and more
 - Fast startup < 150 ms 🚀
@@ -274,6 +274,7 @@ Open another instance of Neovim (I always try to keep one running instance of Ne
 
 ## Inspiration
 
+- [LazyVim](https://github.com/LazyVim/LazyVim)
 - [LunarVim](https://github.com/LunarVim/LunarVim)
 - [SpaceVim](https://spacevim.org/)
 - [Doom-nvim](https://github.com/NTBBloodbath/doom-nvim)

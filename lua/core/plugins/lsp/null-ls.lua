@@ -15,6 +15,7 @@ nls.setup({
     nls.builtins.formatting.gofumpt,
     nls.builtins.code_actions.shellcheck,
     nls.builtins.code_actions.gitsigns,
+    nls.builtins.formatting.shfmt,
     nls.builtins.formatting.cabal_fmt,
     nls.builtins.formatting.fourmolu,
     require("core.plugins.haskell").ghcid(),
