@@ -17,22 +17,10 @@ local M = {
     local map = vim.keymap.set
     local default_options = { silent = true }
 
-    map("n", "<tab>", require("harpoon.ui").nav_next, default_options)
-    map("n", "<S-tab>", require("harpoon.ui").nav_prev, default_options)
-
-    require("which-key").register({
-      ["<tab>"] = {
-        require("harpoon.ui").toggle_quick_menu,
-        "List marked buffers",
-      },
-      b = {
-        name = "Buffers",
-        m = {
-          require("harpoon.mark").add_file,
-          "Mark buffer",
-        },
-      },
-    }, { prefix = "<leader>", mode = "n", default_options })
+    map("n", "<C-m>", require("harpoon.mark").add_file, default_options)
+    map("n", "<C-n>", require("harpoon.ui").nav_next, default_options)
+    map("n", "<C-p>", require("harpoon.ui").nav_prev, default_options)
+    map("n", "<C-t>", require("harpoon.ui").toggle_quick_menu, default_options)
   end,
 }
 

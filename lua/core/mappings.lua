@@ -18,6 +18,10 @@ map("v", ">", ">gv", default_options)
 map("v", "p", '"_dp', default_options)
 map("v", "P", '"_dP', default_options)
 
+-- Tab switch buffer
+map("n", "<tab>", ":bnext<CR>", default_options)
+map("n", "<S-tab>", ":bprev<CR>", default_options)
+
 -- Cancel search highlighting with ESC
 map("n", "<esc>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
@@ -48,6 +52,7 @@ wk.register({
 
 -- Register leader based mappings
 wk.register({
+  ["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
   b = {
     name = "Buffers",
     b = {
