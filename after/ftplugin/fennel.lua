@@ -15,7 +15,7 @@ map("n", ",cl", "<Cmd>FnlPeek<CR>", options("Peek Lua output"))
 map("n", ",co", "<Cmd>FnlGotoOutput<CR>", options("Goto Lua output"))
 map(
   "i",
-  "<C-j>",
+  "<C-k>",
   -- need <Left>...<Right> here to expand <cexpr> in lisp parens
   "<Left><C-o>:ConjureEval ,complete <C-r>=expand('<cexpr>')<CR><CR><Right>",
   options("Complete symbol")
