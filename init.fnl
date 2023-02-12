@@ -1,4 +1,4 @@
-(import-macros {: augroup! : augroup+ : au! : command!
+(import-macros {: augroup! : au! : command!
                 : g! : go! : set!
                 : map! : unmap! : <Cmd> : <C-u>}
   :nvim-laurel.macros)
