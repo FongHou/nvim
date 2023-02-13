@@ -19,10 +19,6 @@ M.showtabline = 1
 M.list = false
 -- which list chars to schow
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
--- Disable integration of Neovim's statusline in your Tmux status
--- Disable https://github.com/norcalli/nvim-colorizer.lua
--- due to causing lags with live_grep in some circumstances
--- M.disable_colorizer = false
 -- Noice heavily changes the Neovim UI ...
 M.enable_noice = false
 -- Disable winbar with nvim-navic location
@@ -63,6 +59,7 @@ M.treesitter_ensure_installed = {
   "haskell",
 }
 
+-- Tools that should be installed by Mason(-tool-install)
 M.mason_tool_installer_ensure_installed = {
   -- LSP
   "clojure-lsp",
@@ -92,6 +89,7 @@ M.mason_tool_installer_ensure_installed = {
 -- enable greping in hidden files
 M.telescope_grep_hidden = true
 
+-- which patterns to ignore in file switcher
 M.telescope_file_ignore_patterns = {
   "%.7z",
   "%.JPEG",
