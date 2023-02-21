@@ -38,12 +38,14 @@ function M.ghcid()
         local filename, row, end_row, col, end_col, severity, message =
           line:match("([^:]+):%(?(%d+)[-,]?(%d*)%)?[:-]%(?(%d+)[-,]?(%d*)%)?:%s*(%w+):(.*)")
 
-        if end_row == nil or end_row == "" then
-          end_row = row
-        end
-
         if end_col == nil or end_col == "" then
           end_col = col
+        end
+
+        if end_row == nil or end_row == "" then
+          end_row = row
+        else
+          end_row, col = col, end_row
         end
 
         return {
