@@ -1,5 +1,3 @@
-:unset +s +t
-
 :seti -XNoImplicitPrelude
 :m + Prelude
 
@@ -16,16 +14,15 @@ dotGHCI_escapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\\''" e
 :def! hdoc return . (":!hoogle -q --color --info " ++) . dotGHCI_escapeShellArg
 :def! doctest return . (":!cabal repl --with-ghc=doctest " ++) . dotGHCI_escapeShellArg
 
-
 :m - Prelude
 
-:set -v0
-:set -fno-show-error-context
 :set -fhide-source-paths
 :set -fmax-relevant-binds=0
+:set -fno-show-error-context
+:set -fprint-expanded-synonyms
 :set -fprint-unicode-syntax
-:set -freverse-errors
 :set -funclutter-valid-hole-fits
+:set -freverse-errors
 
 :set -Wall
 :set -Wcompat
