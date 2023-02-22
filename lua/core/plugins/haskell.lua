@@ -27,9 +27,9 @@ function M.ghcid()
       args = {
         "-c",
         [[ sleep 2 && [ -f ghcid.log ] && cat ghcid.log \
-          | grep -A1 -E '.*: (error|warning):' \
+          | grep -A2 -E '.*: (error|warning):' \
           | grep -v '\--' \
-          | paste -sd'\0\n' -
+          | paste -s -d'\0:\n' -
       ]],
       },
       format = "line",

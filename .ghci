@@ -20,6 +20,7 @@ dotGHCI_escapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\\''" e
 :m - Prelude
 
 :set -v0
+:set -fno-show-error-context
 :set -fhide-source-paths
 :set -fmax-relevant-binds=0
 :set -fprint-unicode-syntax
