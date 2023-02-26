@@ -20,7 +20,7 @@ LUA
 
 setlocal iskeyword+=.
 
-nnoremap <silent><nowait> <localleader>T :w <bar>:Repl :doctest <C-r>=expand('%:p:.')<CR><CR>
+nnoremap <silent><nowait> <localleader>T :w <bar>:Repl :test <C-r>=expand('%:p:.')<CR><CR>
 
 nnoremap <silent><nowait> <localleader>l :w <bar>:Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
 nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>
@@ -28,7 +28,7 @@ nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>
 nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>
 
-nnoremap <silent><nowait> <localleader>h   :Repl :hdoc <C-r>=expand('<cword>')<CR><CR>
+nnoremap <silent><nowait> <localleader>h   :Repl :doc <C-r>=expand('<cword>')<CR><CR>
 nnoremap <silent><nowait> <localleader>i   :Repl :info <C-r>=expand('<cexpr>')<CR><CR>
 
 nnoremap <silent><nowait> <localleader>j   :Repl :instances <C-r>=expand('<cexpr>')<CR><CR>

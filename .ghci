@@ -9,10 +9,9 @@
 :def nopp \_ -> pure (":set -interactive-print System.IO.print")
 
 dotGHCI_escapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\\''" else [c]) arg ++ "'"
-:def! hoogle return . (":!hoogle -q --count=15 --color " ++) . dotGHCI_escapeShellArg
-:def! search return . (":!hoogle -q --count=3 --color " ++) . dotGHCI_escapeShellArg
-:def! hdoc return . (":!hoogle -q --color --info " ++) . dotGHCI_escapeShellArg
-:def! doctest return . (":!cabal repl --with-ghc=doctest " ++) . dotGHCI_escapeShellArg
+:def! doc return . (":!hoogle --database .haskell.hoo -q --color --info " ++) . dotGHCI_escapeShellArg
+:def hoogle return . (":!hoogle --database .haskell.hoo -q --count=10 --color " ++) . dotGHCI_escapeShellArg
+:def test return . (":!cabal repl --with-ghc=doctest " ++) . dotGHCI_escapeShellArg
 
 :m - Prelude
 
