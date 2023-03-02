@@ -1,6 +1,7 @@
 local M = {
   "allaman/kustomize.nvim",
-  requires = "nvim-lua/plenary.nvim",
+  dependencies = "nvim-lua/plenary.nvim",
+  enabled = false,
   ft = "yaml",
   opts = { defaults = true },
 }

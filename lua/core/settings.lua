@@ -58,6 +58,7 @@ M.treesitter_ensure_installed = {
   "clojure",
   "fennel",
   "haskell",
+  "rust",
 }
 
 -- Tools that should be installed by Mason(-tool-install)
@@ -71,6 +72,7 @@ M.mason_tool_installer_ensure_installed = {
   "typescript-language-server",
   "lua-language-server",
   "pyright",
+  "rust-analyzer",
   "terraform-ls",
   "yaml-language-server",
   -- Formatter

@@ -33,3 +33,4 @@ dotGHCI_escapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\\''" e
 :seti -XGHC2021
 :seti -XPartialTypeSignatures
 :seti -fno-warn-partial-type-signatures
+:seti -Wno-type-defaults
