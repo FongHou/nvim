@@ -99,7 +99,7 @@ function M.custom_lsp_attach(client, bufnr)
   -- handle_helm_releases(bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
-  vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", bufopts)
+  vim.keymap.set("n", "R", "<cmd>lua vim.lsp.codelens.run()<cr>", bufopts)
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
   vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", bufopts)
   local wk = require("which-key")

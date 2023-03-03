@@ -8,6 +8,62 @@ local M = {
 }
 
 function M.config()
+  require("lspconfig").hls.setup({
+    on_attach = function(client, bufnr)
+      local utils = require("core.plugins.lsp.utils")
+      utils.custom_lsp_attach(client, bufnr)
+      vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "TextChanged" }, {
+        group = vim.api.nvim_create_augroup("hls-refresh-codelens", {}),
+        callback = function()
+          if client.server_capabilities.codeLensProvider then
+            vim.lsp.codelens.refresh()
+          end
+        end,
+        buffer = bufnr,
+      })
+      vim.api.nvim_create_autocmd("VimLeavePre", {
+        group = vim.api.nvim_create_augroup("hls-stop-client", {}),
+        callback = function()
+          vim.lsp.stop_client(client, false)
+        end,
+        buffer = bufnr,
+      })
+    end,
+
+    single_file_support = false,
+
+    settings = {
+      haskell = {
+        cabalFormattingProvider = "cabalfmt",
+        formattingProvider = "ormolu",
+        checkProject = false,
+        plugin = {
+          ["ghcide-completions"] = {
+            config = {
+              snippetsOn = false,
+            },
+          },
+          importLens = {
+            globalOn = false,
+          },
+          haddockComments = {
+            globalOn = false,
+          },
+          hlint = {
+            codeActionsOn = true,
+            diagnosticsOn = true,
+          },
+          retrie = {
+            globalOn = false,
+          },
+          splice = {
+            globalOn = false,
+          },
+        },
+      },
+    },
+  })
+
   local autopairs = require("nvim-autopairs")
   autopairs.remove_rule("'")
   autopairs.remove_rule("`")
