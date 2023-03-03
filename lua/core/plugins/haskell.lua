@@ -35,7 +35,7 @@ function M.config()
     settings = {
       haskell = {
         cabalFormattingProvider = "cabalfmt",
-        formattingProvider = "ormolu",
+        formattingProvider = "fourmolu",
         checkProject = false,
         plugin = {
           ["ghcide-completions"] = {
