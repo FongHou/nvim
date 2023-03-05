@@ -50,8 +50,7 @@ function M.config()
             globalOn = false,
           },
           hlint = {
-            codeActionsOn = true,
-            diagnosticsOn = true,
+            globalOn = false,
           },
           retrie = {
             globalOn = false,

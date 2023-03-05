@@ -44,7 +44,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
     root_dir = root_pattern(lsp),
-    single_file_support = false,
     settings = {
       json = languages.json,
       Lua = languages.lua,
