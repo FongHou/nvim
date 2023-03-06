@@ -19,6 +19,14 @@ local M = {
           { buffer = buffer, desc = "Code Action" }
         )
       end,
+      settings = {
+        ["rust-analyzer"] = {
+          check = {
+            command = "clippy",
+            extraArgs = { "--all", "--", "-W", "clippy::all" },
+          },
+        },
+      },
       standalone = false,
     },
   },
