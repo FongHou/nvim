@@ -8,21 +8,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 capabilities.offsetEncoding = { "utf-16" }
 
-local servers = {
-  "bashls",
-  "clangd",
-  "clojure_lsp",
-  "denols",
-  "dockerls",
-  "jsonls",
-  "marksman",
-  "pyright",
-  "lua_ls",
-  "terraformls",
-  "tsserver",
-  "yamlls",
-}
-
 local function root_pattern(lsp)
   if lsp == "denols" then
     return nvim_lsp.util.root_pattern({ "deno.json", "deno.jsonc" })
@@ -33,18 +18,18 @@ local function root_pattern(lsp)
 end
 
 require("core.utils.functions").on_attach(function(client, buffer)
-  require("core.plugins.lsp.keys").on_attach(client, buffer)
   -- disable formatting for LSP clients as this is handled by null-ls
   -- TODO: not required anymore?
   -- client.server_capabilities.documentFormattingProvider = false
-  -- client.server_capabilities.documentRangeFormattingProvider = true
+  client.server_capabilities.documentRangeFormattingProvider = true
   vim.api.nvim_buf_set_option(buffer, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
 
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = buffer }
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
   vim.keymap.set("n", "R", "<cmd>lua vim.lsp.codelens.run()<cr>", bufopts)
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
   vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", bufopts)
+  require("core.plugins.lsp.keys").on_attach(client, buffer)
 end)
 
 for _, lsp in ipairs(settings.lsp_servers) do
