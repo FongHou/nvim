@@ -8,11 +8,16 @@ local M = {
   ft = "rust",
   opts = {
     server = {
-      on_attach = function(client, bufnr)
+      on_attach = function(client, buffer)
         local rt = require("rust-tools")
-        vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
-        vim.keymap.set("n", "<Leader>lk", rt.hover_actions.hover_actions, { buffer = bufnr })
-        vim.keymap.set("n", "<Leader>la", rt.code_action_group.code_action_group, { buffer = bufnr })
+        vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = buffer, desc = "Hover" })
+        vim.keymap.set("n", "<Leader>lk", rt.hover_actions.hover_actions, { buffer = buffer, desc = "Hover" })
+        vim.keymap.set(
+          "n",
+          "<Leader>la",
+          rt.code_action_group.code_action_group,
+          { buffer = buffer, desc = "Code Action" }
+        )
       end,
       standalone = false,
     },

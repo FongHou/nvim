@@ -3,8 +3,13 @@ local M = {
   dependencies = {
     "fonghou/fzf-hoogle.vim",
     "fonghou/tmuxjump.vim",
+    "preservim/tagbar",
   },
   ft = "haskell",
+  keys = {
+    { "g]", "<cmd>Telescope tags<cr>", desc = "Telescope tags" },
+    { "g[", "<cmd>TagbarToggle<cr>", desc = "Toggle tagbar" },
+  },
 }
 
 function M.config()

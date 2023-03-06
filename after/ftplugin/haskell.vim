@@ -3,14 +3,15 @@ lua <<LUA
 local wk = require("which-key")
 local keys = {
     g = "hoogle search",
-    h = "ghci doc",
-    i = "ghci info",
-    j = "ghci instances",
-    k = "ghci kind",
-    l = "ghci load",
-    r = "ghci reload",
-    t = "ghci type",
-    T = "ghci doctest",
+    h = "ghci :doc",
+    i = "ghci :info",
+    j = "ghci :instances",
+    k = "ghci :kind",
+    l = "ghci :load",
+    r = "ghci :reload",
+    R = "ghci :main",
+    t = "ghci :type",
+    T = "ghci :test",
   }
 
 wk.register(keys, {mode = "n", prefix = "<localleader>", silent = true})
@@ -24,6 +25,7 @@ nnoremap <silent><nowait> <localleader>T :w <bar>:Repl :test <C-r>=expand('%:p:.
 
 nnoremap <silent><nowait> <localleader>l :w <bar>:Repl :load! *<C-r>=expand('%:p:.')<CR><CR>
 nnoremap <silent><nowait> <localleader>r :w <bar>:Repl :reload!<CR>
+nnoremap <silent><nowait> <localleader>R :w <bar>:Repl :main<CR>
 
 nnoremap <silent><nowait> <localleader>g   :Hoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent><nowait> <localleader>g y :Hoogle <C-r>=@"<CR><CR>

@@ -11,7 +11,6 @@ nls.setup({
     nls.builtins.formatting.deno_fmt,
     nls.builtins.formatting.terraform_fmt,
     nls.builtins.formatting.black,
-    nls.builtins.diagnostics.ruff,
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.gofumpt,
     nls.builtins.code_actions.shellcheck,
