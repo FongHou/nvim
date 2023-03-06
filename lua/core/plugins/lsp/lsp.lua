@@ -1,6 +1,7 @@
+local settings = require("core.settings")
 local nvim_lsp = require("lspconfig")
 local utils = require("core.plugins.lsp.utils")
-local languages = require("core.plugins.lsp.languages")
+local lsp_settings = require("core.plugins.lsp.settings")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- enable autoclompletion via nvim-cmp
@@ -31,11 +32,23 @@ local function root_pattern(lsp)
   end
 end
 
-for _, lsp in ipairs(servers) do
+require("core.utils.functions").on_attach(function(client, buffer)
+  require("core.plugins.lsp.keys").on_attach(client, buffer)
+  -- disable formatting for LSP clients as this is handled by null-ls
+  -- TODO: not required anymore?
+  -- client.server_capabilities.documentFormattingProvider = false
+  -- client.server_capabilities.documentRangeFormattingProvider = true
+  vim.api.nvim_buf_set_option(buffer, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
+
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
+  vim.keymap.set("n", "R", "<cmd>lua vim.lsp.codelens.run()<cr>", bufopts)
+  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
+  vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", bufopts)
+end)
+
+for _, lsp in ipairs(settings.lsp_servers) do
   nvim_lsp[lsp].setup({
-    on_attach = function(client, bufnr)
-      utils.custom_lsp_attach(client, bufnr)
-    end,
     before_init = function(_, config)
       if lsp == "pyright" then
         config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
@@ -45,10 +58,12 @@ for _, lsp in ipairs(servers) do
     flags = { debounce_text_changes = 150 },
     root_dir = root_pattern(lsp),
     settings = {
-      json = languages.json,
-      Lua = languages.lua,
+      json = lsp_settings.json,
+      Lua = lsp_settings.lua,
+      ltex = lsp_settings.ltex,
       redhat = { telemetry = { enabled = false } },
-      yaml = languages.yaml,
+      texlab = lsp_settings.tex,
+      yaml = lsp_settings.yaml,
     },
   })
 end

@@ -1,6 +1,6 @@
 local M = {}
 
--- theme: nightfox, tokyonight, tundra, kanagawa; default is catppuccin
+-- theme: nightfox, tokyonight, tundra, kanagawa, oxocarbon; default is catppuccin
 -- refer to the themes settings file for different styles
 M.theme = "tokyonight"
 -- Toggle global status line
@@ -61,20 +61,23 @@ M.treesitter_ensure_installed = {
   "rust",
 }
 
--- Tools that should be installed by Mason(-tool-install)
-M.mason_tool_installer_ensure_installed = {
-  -- LSP
-  "clojure-lsp",
-  "bash-language-server",
-  "dockerfile-language-server",
-  "json-lsp",
+-- LSPs that should be installed by Mason-lspconfig
+M.lsp_servers = {
+  "bashls",
+  "clojure_lsp",
+  "dockerls",
+  "jsonls",
   "marksman",
-  "typescript-language-server",
-  "lua-language-server",
   "pyright",
-  "rust-analyzer",
-  "terraform-ls",
-  "yaml-language-server",
+  "lua_ls",
+  "terraformls",
+  "denols",
+  "tsserver",
+  "yamlls",
+}
+
+-- Tools that should be installed by Mason
+M.tools = {
   -- Formatter
   "black",
   "prettier",
@@ -87,6 +90,9 @@ M.mason_tool_installer_ensure_installed = {
   "yamllint",
   -- DAP
   "debugpy",
+  -- LSP
+  "clojure-lsp",
+  "rust-analyzer",
 }
 
 -- enable greping in hidden files

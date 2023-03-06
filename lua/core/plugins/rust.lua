@@ -9,9 +9,6 @@ local M = {
   opts = {
     server = {
       on_attach = function(client, bufnr)
-        local utils = require("core.plugins.lsp.utils")
-        utils.custom_lsp_attach(client, bufnr)
-
         local rt = require("rust-tools")
         vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
         vim.keymap.set("n", "<Leader>lk", rt.hover_actions.hover_actions, { buffer = bufnr })

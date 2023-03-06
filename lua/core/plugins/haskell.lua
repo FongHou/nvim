@@ -10,8 +10,6 @@ local M = {
 function M.config()
   require("lspconfig").hls.setup({
     on_attach = function(client, bufnr)
-      local utils = require("core.plugins.lsp.utils")
-      utils.custom_lsp_attach(client, bufnr)
       vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "TextChanged" }, {
         group = vim.api.nvim_create_augroup("hls-refresh-codelens", {}),
         callback = function()

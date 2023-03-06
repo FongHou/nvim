@@ -1,6 +1,7 @@
 local M = {
   "alexghergh/nvim-tmux-navigation",
   dependencies = {
+    "preservim/tagbar",
     "ThePrimeagen/harpoon",
   },
   config = function()
