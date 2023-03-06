@@ -13,6 +13,7 @@ nls.setup({
     nls.builtins.formatting.black,
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.gofumpt,
+    nls.builtins.formatting.rustfmt,
     nls.builtins.code_actions.shellcheck,
     nls.builtins.code_actions.gitsigns,
     nls.builtins.formatting.shfmt,
