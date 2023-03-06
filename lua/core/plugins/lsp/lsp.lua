@@ -39,6 +39,11 @@ for _, lsp in ipairs(settings.lsp_servers) do
         config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
       end
     end,
+    on_attach = function(client, _)
+      if lsp == "ruff_lsp" then
+        client.server_capabilities.hover = false
+      end
+    end,
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
     root_dir = root_pattern(lsp),
