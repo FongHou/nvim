@@ -3,6 +3,8 @@ if vim.g.vscode then
   return
 end
 
+vim.g.python3_host_prog = "/usr/bin/python3"
+
 -- References to ./lua/
 
 -- Load global functions
