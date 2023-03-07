@@ -8,15 +8,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 capabilities.offsetEncoding = { "utf-16" }
 
-local function root_pattern(lsp)
-  if lsp == "denols" then
-    return nvim_lsp.util.root_pattern({ "deno.json", "deno.jsonc" })
-  end
-  if lsp == "tsserver" then
-    return nvim_lsp.util.root_pattern("tsconfig.json")
-  end
-end
-
 require("core.utils.functions").on_attach(function(client, buffer)
   -- disable formatting for LSP clients as this is handled by null-ls
   -- TODO: not required anymore?
@@ -46,7 +37,6 @@ for _, lsp in ipairs(settings.lsp_servers) do
     end,
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
-    root_dir = root_pattern(lsp),
     settings = {
       json = lsp_settings.json,
       Lua = lsp_settings.lua,
