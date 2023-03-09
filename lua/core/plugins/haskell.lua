@@ -1,9 +1,10 @@
 local M = {
-  "junegunn/fzf",
+  "preservim/tagbar",
   dependencies = {
+    "junegunn/fzf",
     "fonghou/fzf-hoogle.vim",
     "fonghou/tmuxjump.vim",
-    "preservim/tagbar",
+    "kiyoon/haskell-scope-highlighting.nvim",
   },
   ft = "haskell",
   keys = {
@@ -13,6 +14,13 @@ local M = {
 }
 
 function M.config()
+  vim.cmd([[
+    hi! link HaskellVariableDeclarationWithinScope DiagnosticVirtualTextWarn
+    hi! link HaskellVariableDeclaredWithinScope DiagnosticVirtualTextWarn
+    hi! link HaskellVariableDeclaredWithinFile DiagnosticVirtualTextHint
+    hi! link HaskellVariableNotDeclaredWithinFile DiagnosticVirtualTextInfo
+  ]])
+
   require("lspconfig").hls.setup({
     on_attach = function(client, bufnr)
       vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "TextChanged" }, {
