@@ -15,9 +15,10 @@ local M = {
 
 function M.config()
   vim.cmd([[
-    hi! link HaskellVariableDeclarationWithinScope DiagnosticVirtualTextWarn
-    hi! link HaskellVariableDeclaredWithinScope DiagnosticVirtualTextWarn
-    hi! link HaskellVariableDeclaredWithinFile DiagnosticVirtualTextHint
+    hi! link HaskellCurrentScope VisualNC
+    hi! link HaskellVariableDeclarationWithinScope DiagnosticVirtualTextHint
+    hi! link HaskellVariableDeclaredWithinScope DiagnosticVirtualTextHint
+    hi! link HaskellVariableDeclaredWithinFile DiagnosticVirtualTextWarn
     hi! link HaskellVariableNotDeclaredWithinFile DiagnosticVirtualTextInfo
   ]])
 
