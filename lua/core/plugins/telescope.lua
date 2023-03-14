@@ -2,6 +2,7 @@ local M = {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
   dependencies = {
+    "mrcjkb/telescope-manix",
     "jvgrootveld/telescope-zoxide",
     "crispgm/telescope-heading.nvim",
     "nvim-telescope/telescope-symbols.nvim",
@@ -172,6 +173,7 @@ local M = {
       },
     })
 
+    telescope.load_extension("manix")
     telescope.load_extension("fzf")
     telescope.load_extension("projects")
     telescope.load_extension("zoxide")

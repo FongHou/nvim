@@ -58,23 +58,25 @@ M.treesitter_ensure_installed = {
   "clojure",
   "fennel",
   "haskell",
+  "nix",
   "rust",
 }
 
 -- LSPs that should be installed by Mason-lspconfig
 M.lsp_servers = {
   "bashls",
-  "clangd",
-  "clojure_lsp",
   "dockerls",
-  "denols",
   "jsonls",
   "marksman",
   "pyright",
-  "ruff_lsp",
   "lua_ls",
   "terraformls",
   "yamlls",
+  "clangd",
+  "clojure_lsp",
+  "denols",
+  "nil_ls",
+  "ruff_lsp",
 }
 
 -- Tools that should be installed by Mason
