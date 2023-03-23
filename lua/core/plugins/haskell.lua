@@ -1,15 +1,14 @@
 local M = {
-  "preservim/tagbar",
+  "fonghou/fzf-hoogle.vim",
   dependencies = {
     "junegunn/fzf",
-    "fonghou/fzf-hoogle.vim",
-    "fonghou/tmuxjump.vim",
+    "preservim/tagbar",
     "kiyoon/haskell-scope-highlighting.nvim",
   },
   ft = "haskell",
   keys = {
-    { "g]", "<cmd>Telescope tags<cr>", desc = "Telescope tags" },
     { "g[", "<cmd>TagbarToggle<cr>", desc = "Toggle tagbar" },
+    { "g]", "<cmd>Telescope tags<cr>", desc = "Telescope tags" },
   },
 }
 
@@ -93,7 +92,7 @@ function M.ghcid()
       command = "bash",
       args = {
         "-c",
-        [[ sleep 2 && [ -f ghcid.log ] && cat ghcid.log \
+        [[ sleep 1 && [ -f ghcid.log ] && cat ghcid.log \
           | grep -A2 -E '.*: (error|warning):' \
           | grep -v '\--' \
           | paste -s -d'\0\t\n' - \

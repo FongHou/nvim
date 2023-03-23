@@ -95,7 +95,6 @@ M.tools = {
   -- DAP
   "debugpy",
   -- LSP
-  "clojure-lsp",
   "rust-analyzer",
 }
 

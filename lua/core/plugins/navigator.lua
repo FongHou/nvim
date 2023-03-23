@@ -2,6 +2,7 @@ local M = {
   "alexghergh/nvim-tmux-navigation",
   dependencies = {
     "ThePrimeagen/harpoon",
+    "fonghou/tmuxjump.vim",
   },
   config = function()
     require("nvim-tmux-navigation").setup({
