@@ -56,6 +56,7 @@ M.treesitter_ensure_installed = {
   "vim",
   "yaml",
   "clojure",
+  "dhall",
   "fennel",
   "haskell",
   "nix",
@@ -75,6 +76,7 @@ M.lsp_servers = {
   "clangd",
   "clojure_lsp",
   "denols",
+  "dhall_lsp_server",
   "nil_ls",
   "ruff_lsp",
 }
@@ -94,8 +96,6 @@ M.tools = {
   "ruff",
   -- DAP
   "debugpy",
-  -- LSP
-  "rust-analyzer",
 }
 
 -- enable greping in hidden files

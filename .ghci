@@ -26,9 +26,6 @@ dotGHCI_escapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\\''" e
 :set -Wall
 :set -Wcompat
 :set -Widentities
-:set -Wincomplete-record-updates
-:set -Wincomplete-uni-patterns
-:set -Wpartial-fields
 
 :seti -XGHC2021
 :seti -XPartialTypeSignatures
