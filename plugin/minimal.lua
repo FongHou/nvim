@@ -16,11 +16,12 @@ local function bootstrap(url)
   vim.opt.runtimepath:prepend(path)
 end
 
+bootstrap("https://github.com/udayvir-singh/tangerine.nvim")
 bootstrap("https://github.com/aileot/nvim-laurel")
 bootstrap("https://github.com/ggandor/leap.nvim")
 bootstrap("https://github.com/ggandor/leap-ast.nvim")
 bootstrap("https://github.com/nvim-treesitter/nvim-treesitter")
-bootstrap("https://github.com/udayvir-singh/tangerine.nvim")
+bootstrap("nvim-treesitter/nvim-treesitter-textobjects")
 
 require("tangerine").setup({
   target = vim.fn.stdpath("data") .. "/tangerine",
