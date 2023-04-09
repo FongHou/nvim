@@ -3,7 +3,7 @@ local M = {
   dependencies = {
     "junegunn/fzf",
     "preservim/tagbar",
-    "kiyoon/haskell-scope-highlighting.nvim",
+    -- "kiyoon/haskell-scope-highlighting.nvim",
   },
   ft = "haskell",
   keys = {

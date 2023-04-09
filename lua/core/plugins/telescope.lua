@@ -138,6 +138,8 @@ local M = {
             ["<c-x>"] = actions.delete_buffer,
           },
         },
+        dynamic_preview_title = true,
+        path_display = { "smart" },
         prompt_prefix = table.concat({ icons.arrows.ChevronRight, " " }),
         selection_caret = icons.arrows.CurvedArrowRight,
         entry_prefix = "  ",
