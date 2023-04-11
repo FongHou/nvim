@@ -1,27 +1,17 @@
 local M = {
-  "alexghergh/nvim-tmux-navigation",
+  "ThePrimeagen/harpoon",
   dependencies = {
-    "ThePrimeagen/harpoon",
-    "fonghou/tmuxjump.vim",
+    "preservim/tagbar",
   },
   config = function()
-    require("nvim-tmux-navigation").setup({
-      disable_when_zoomed = true, -- defaults to false
-      keybindings = {
-        left = "<M-h>",
-        down = "<M-j>",
-        up = "<M-k>",
-        right = "<M-l>",
-      },
-    })
-
     local map = vim.keymap.set
-    local default_options = { silent = true }
 
-    map("n", "<C-a>", require("harpoon.mark").add_file, default_options)
-    map("n", "<C-n>", require("harpoon.ui").nav_next, default_options)
-    map("n", "<C-p>", require("harpoon.ui").nav_prev, default_options)
-    map("n", "<C-t>", require("harpoon.ui").toggle_quick_menu, default_options)
+    map("n", "<C-a>", require("harpoon.mark").add_file, { desc = "Harpoon add file" })
+    map("n", "<C-n>", require("harpoon.ui").nav_next, { desc = "Harpoon next file" })
+    map("n", "<C-p>", require("harpoon.ui").nav_prev, { desc = "Harpoon prev file" })
+    map("n", "<C-t>", require("harpoon.ui").toggle_quick_menu, { desc = "Harpoon list file" })
+    map("n", "g[", "<cmd>TagbarToggle<cr>", { desc = "Toggle tagbar" })
+    map("n", "g]", "<cmd>Telescope tags<cr>", { desc = "Search tags" })
   end,
 }
 

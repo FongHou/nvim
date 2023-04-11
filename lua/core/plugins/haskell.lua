@@ -2,14 +2,9 @@ local M = {
   "fonghou/fzf-hoogle.vim",
   dependencies = {
     "junegunn/fzf",
-    "preservim/tagbar",
     -- "kiyoon/haskell-scope-highlighting.nvim",
   },
   ft = "haskell",
-  keys = {
-    { "g[", "<cmd>TagbarToggle<cr>", desc = "Toggle tagbar" },
-    { "g]", "<cmd>Telescope tags<cr>", desc = "Telescope tags" },
-  },
 }
 
 function M.config()
@@ -22,6 +17,7 @@ function M.config()
   ]])
 
   require("lspconfig").hls.setup({
+    autostart = false,
     on_attach = function(client, bufnr)
       vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "TextChanged" }, {
         group = vim.api.nvim_create_augroup("hls-refresh-codelens", {}),

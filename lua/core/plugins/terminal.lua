@@ -1,7 +1,9 @@
 local M = {
-  "mtikekar/nvim-send-to-term",
+  "alexghergh/nvim-tmux-navigation",
   dependencies = {
     "akinsho/nvim-toggleterm.lua",
+    "mtikekar/nvim-send-to-term",
+    "fonghou/tmuxjump.vim",
   },
 }
 
@@ -24,8 +26,15 @@ function M.init()
 end
 
 function M.config()
-  local map = vim.api.nvim_set_keymap
-  local buf_map = vim.api.nvim_buf_set_keymap
+  require("nvim-tmux-navigation").setup({
+    disable_when_zoomed = true, -- defaults to false
+    keybindings = {
+      left = "<M-h>",
+      down = "<M-j>",
+      up = "<M-k>",
+      right = "<M-l>",
+    },
+  })
 
   require("toggleterm").setup({
     -- size can be a number or function which is passed the current terminal
@@ -64,6 +73,10 @@ function M.config()
       },
     },
   })
+
+  local map = vim.api.nvim_set_keymap
+  local buf_map = vim.api.nvim_buf_set_keymap
+
   map("t", "<ESC>", "<C-\\><C-n>", { noremap = true, silent = true }) -- back to normal mode in Terminal
 
   -- Better navigation to and from terminal
