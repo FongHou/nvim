@@ -49,7 +49,7 @@ autocmd("BufEnter", {
 autocmd("BufEnter", {
   pattern = "*.cljs",
   callback = function()
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "nbb nrepl-server :port $port"
+    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = "npx nbb nrepl-server :port $port"
   end,
 })
 
