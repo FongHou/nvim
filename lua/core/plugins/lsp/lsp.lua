@@ -15,6 +15,17 @@ require("core.utils.functions").on_attach(function(client, buffer)
   client.server_capabilities.documentRangeFormattingProvider = true
   vim.api.nvim_buf_set_option(buffer, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
 
+  if client.server_capabilities.documentHighlightProvider then
+    vim.cmd([[
+      augroup lsp_document_hightlight
+        autocmd! * <buffer>
+        autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]])
+  end
+
   local bufopts = { noremap = true, silent = true, buffer = buffer }
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
   vim.keymap.set("n", "<C-x>", "<cmd>lua vim.lsp.codelens.run()<cr>", bufopts)
