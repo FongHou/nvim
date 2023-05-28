@@ -10,9 +10,9 @@ local M = {
 function M.init()
   vim.cmd([[
     command -nargs=1 Repl :call g:send_target.send(['<args>'])
-    nnoremap <silent>,;    <Plug>SendLine
-    nnoremap <silent>,<CR> <Plug>Send$
-    xnoremap <silent>,;    <Plug>Send
+    nnoremap <silent>,<CR>  <Plug>SendLine
+    xnoremap <silent>,<CR>  <Plug>Send
+    nnoremap <silent>,;     <Plug>Send$
   ]])
 
   vim.g.send_disable_mapping = true
