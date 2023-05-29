@@ -2,6 +2,7 @@ local M = {
   "fonghou/fzf-hoogle.vim",
   dependencies = {
     "junegunn/fzf",
+    "mrcjkb/haskell-snippets.nvim",
     -- "kiyoon/haskell-scope-highlighting.nvim",
   },
   ft = "haskell",
@@ -69,6 +70,10 @@ function M.config()
       },
     },
   })
+
+  local luasnip = require("luasnip")
+  local hasksnip = require("haskell-snippets").all
+  luasnip.add_snippets("haskell", hasksnip, { key = "haskell" })
 
   local autopairs = require("nvim-autopairs")
   autopairs.remove_rule("'")

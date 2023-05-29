@@ -66,6 +66,7 @@ let g:hoogle_fzf_preview = 'down:40%:wrap'
 let g:hoogle_fzf_window = {'window': 'call hoogle#floatwindow(40,60)'}
 
 setlocal tags+=.haskell.tags
+setlocal omnifunc=haskellcomplete#Complete
 
 " cabal install fast-tags
 command HaskTags silent !find ~/.hackage .hackage -name '*.cabal' -print0 | xargs -0 fast-tags --cabal --qualified -o .haskell.tags
@@ -74,7 +75,6 @@ command HaskTags silent !find ~/.hackage .hackage -name '*.cabal' -print0 | xarg
 augroup Haskell
   autocmd!
   au BufWritePost *.hs  silent !ghc-tags -c &
-  au FileType haskell setlocal omnifunc=haskellcomplete#Complete
 augroup END
 
 " cabal install hasktags
