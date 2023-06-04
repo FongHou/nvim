@@ -66,18 +66,14 @@ M.treesitter_ensure_installed = {
 -- LSPs that should be installed by Mason-lspconfig
 M.lsp_servers = {
   "bashls",
-  "dockerls",
   "jsonls",
-  "marksman",
   "pyright",
   "lua_ls",
-  "tailwindcss",
   "terraformls",
   "yamlls",
   "clangd",
   "clojure_lsp",
   "denols",
-  "dhall_lsp_server",
   "nil_ls",
   "ruff_lsp",
 }
