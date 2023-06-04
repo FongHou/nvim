@@ -3,6 +3,7 @@ local M = {
   build = ":TSUpdate",
   event = "BufReadPost",
   dependencies = {
+    "nvim-treesitter/nvim-treesitter-context",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-endwise",
     "mfussenegger/nvim-ts-hint-textobject",
@@ -53,6 +54,11 @@ local M = {
           },
         },
       },
+    })
+
+    require("treesitter-context").setup({
+      max_lines = 1,
+      trim_scope = "inner",
     })
 
     require("nvim-ts-autotag").setup()

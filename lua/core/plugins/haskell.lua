@@ -3,20 +3,11 @@ local M = {
   dependencies = {
     "junegunn/fzf",
     "mrcjkb/haskell-snippets.nvim",
-    -- "kiyoon/haskell-scope-highlighting.nvim",
   },
   ft = "haskell",
 }
 
 function M.config()
-  vim.cmd([[
-    hi! link HaskellCurrentScope VisualNC
-    hi! link HaskellVariableDeclarationWithinScope DiagnosticVirtualTextHint
-    hi! link HaskellVariableDeclaredWithinScope DiagnosticVirtualTextHint
-    hi! link HaskellVariableDeclaredWithinFile DiagnosticVirtualTextWarn
-    hi! link HaskellVariableNotDeclaredWithinFile DiagnosticVirtualTextInfo
-  ]])
-
   require("lspconfig").hls.setup({
     autostart = false,
     on_attach = function(client, bufnr)

@@ -11,6 +11,9 @@ if settings.global_statusline then
 else
   o.laststatus = 2
 end
+if settings.enable_noice then
+  o.cmdheight = 0
+end
 
 if utils.isNotEmpty(settings.grepprg) then
   o.grepprg = settings.grepprg
