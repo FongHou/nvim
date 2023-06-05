@@ -13,7 +13,7 @@
   (au! :CmdlineLeave ["/" "?"] "set nohlsearch"))
 
 (augroup! :SystemClip
-  [:TextYankPost "if v:event.operator ==# 'y' | call system('clip.exe', @\") | endif"])
+  [:TextYankPost "if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @\") | endif"])
 
 ;; Leap
 (local leap (require :leap))
