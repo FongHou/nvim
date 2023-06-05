@@ -13,7 +13,7 @@
   (au! :CmdlineLeave ["/" "?"] "set nohlsearch"))
 
 (augroup! :SystemClip
-  [:TextYankPost "if v:event.operator ==# 'y' | call system('clip', @\") | endif"])
+  [:TextYankPost "if v:event.operator ==# 'y' | call system('clip', @0) | endif"])
 
 ;; Leap
 (local leap (require :leap))
