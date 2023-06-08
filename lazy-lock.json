@@ -18,7 +18,6 @@
   "colorful-winsep.nvim": { "branch": "main", "commit": "e1b72c498f25c1fc37a7e9913332c137f753a90a" },
   "conjure": { "branch": "develop", "commit": "704eee1a960e8bef0cebd2063fa66c35f852a8ac" },
   "diffview.nvim": { "branch": "main", "commit": "9f00ed07c16662bd4280ecc4bfe7d35a65b1f6b7" },
-  "dropbar.nvim": { "branch": "master", "commit": "03598ab4d30c58ddd7f5c65d11ad2aea934f83eb" },
   "flatten.nvim": { "branch": "main", "commit": "d92c93959e9ac52a00002d6fd64c2d2ca5dd7192" },
   "friendly-snippets": { "branch": "main", "commit": "0eb246a7dbb06d3d9e560696be210241cc27c081" },
   "fzf": { "branch": "master", "commit": "3e9efd1401404da8afdcf9757ac9996f5c48290f" },
