@@ -9,6 +9,7 @@ local M = {
     "lukas-reineke/cmp-rg",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "quangnguyen30192/cmp-nvim-tags",
+    "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local cmp = require("cmp")

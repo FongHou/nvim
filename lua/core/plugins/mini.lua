@@ -1,6 +1,7 @@
 local M = {
   "echasnovski/mini.nvim",
   branch = "main",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("mini.surround").setup({
       -- Number of lines within which surrounding is searched
@@ -46,6 +47,14 @@ local M = {
     require("mini.align").setup()
     require("mini.test").setup()
 
+    local hipatterns = require("mini.hipatterns")
+    hipatterns.setup({
+      highlighters = {
+
+        -- TODO: tailwind integration?
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    })
   end,
 }
 

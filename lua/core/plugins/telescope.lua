@@ -98,6 +98,9 @@ local M = {
         find_files = {
           hidden = false,
         },
+        oldfiles = {
+          cwd_only = true,
+        },
         buffers = {
           ignore_current_buffer = true,
           sort_lastused = true,
