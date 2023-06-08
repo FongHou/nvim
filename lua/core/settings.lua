@@ -65,6 +65,7 @@ M.treesitter_ensure_installed = {
 M.lsp_servers = {
   "bashls",
   "jsonls",
+  "gopls",
   "pyright",
   "lua_ls",
   "terraformls",
