@@ -18,9 +18,9 @@ local M = {
     cmp.setup({
       formatting = {
         format = lspkind.cmp_format({
-          with_text = false,
           maxwidth = 50,
-          mode = "text",
+          preset = "codicons",
+          mode = "symbol",
           menu = {
             buffer = "BUF",
             rg = "RG",
