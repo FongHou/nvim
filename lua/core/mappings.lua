@@ -116,6 +116,7 @@ wk.register({
   },
   t = { name = "Toggles" },
   -- hydra heads
+  d = "which_key_ignore",
   s = { "Search" },
   w = { "Windows" },
   z = { "Spelling" },

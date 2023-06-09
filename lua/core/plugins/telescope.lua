@@ -43,8 +43,8 @@ local M = {
     { "<leader>mm", "<cmd>Telescope make<cr>", desc = "Run make" },
     { "<leader>mt", "<cmd>Telescope<cr>", desc = "Telescope" },
     -- Other
-    { "<leader><space>", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
-    { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Bufferlist" },
+    { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
+    { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Buffer list" },
     { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
   },
   config = function()
