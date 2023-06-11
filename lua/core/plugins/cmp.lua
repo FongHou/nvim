@@ -76,7 +76,14 @@ local M = {
           compare.score,
           compare.recently_used,
           compare.locality,
-          compare.kind,
+          function(entry1, entry2)
+            local ok, result = pcall(compare.kind, entry1, entry2)
+            if ok then
+              return result
+            else
+              return false
+            end
+          end,
           compare.sort_text,
           compare.length,
           compare.order,
