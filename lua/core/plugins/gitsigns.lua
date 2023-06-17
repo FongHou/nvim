@@ -102,7 +102,6 @@ local M = {
       yadm = {
         enable = false,
       },
-      on_attach = mappings(),
     })
   end,
 }
