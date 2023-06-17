@@ -25,6 +25,7 @@ M._keys = {
   { "<leader>ln", vim.diagnostic.goto_next, desc = "Next Diagnostic" },
   { "<leader>lp", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+  { "<leader>lc", vim.lsp.codelens.run, desc = "Run CodeLens" },
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   { "<leader>le", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
   { "<leader>lq", vim.diagnostic.setloclist, desc = "Diagnostics in qflist" },

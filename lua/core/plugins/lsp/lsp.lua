@@ -28,7 +28,6 @@ require("core.utils.functions").on_attach(function(client, buffer)
 
   local bufopts = { noremap = true, silent = true, buffer = buffer }
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
-  vim.keymap.set("n", "<C-x>", "<cmd>lua vim.lsp.codelens.run()<cr>", bufopts)
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
   vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", bufopts)
   require("core.plugins.lsp.keys").on_attach(client, buffer)
