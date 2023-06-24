@@ -52,7 +52,7 @@ local M = {
         ["<C-e>"] = cmp.mapping.close(),
         ["<Tab>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
+          select = true,
         }),
         ["<C-n>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
