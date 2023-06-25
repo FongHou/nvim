@@ -7,12 +7,12 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- References to ./lua/
 
+-- Chech prerequisites
+require("core.checks")
 -- Load global functions
 require("core.globals")
 -- Plugin management via lazy
 require("core.lazy")
--- Plugin management via Packer
--- require("core.packer")
 -- "Global" Keymappings
 require("core.mappings")
 -- All non plugin related (vim) options

@@ -26,12 +26,15 @@ end
 --- Expects only the minor version, e.g. "9" for 0.9.1
 ---@param version number
 ---@return boolean
-M.checkMinimumNeovimVersion = function(version)
-  print(version)
-  if version < vim.version().minor then
-    return false
-  end
-  return true
+M.isNeovimVersionsatisfied = function(version)
+  return version <= tonumber(vim.version().minor)
+end
+
+---checks if a command is available
+---@param command string
+---@return boolean
+M.isExecutableAvailable = function(command)
+  return vim.fn.executable(command) == 1
 end
 
 M.notify = function(message, level, title)
