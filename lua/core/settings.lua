@@ -82,7 +82,6 @@ M.lsp_servers = {
 -- Tools that should be installed by Mason
 M.tools = {
   -- Formatter
-  "black",
   "prettier",
   "stylua",
   "shfmt",
@@ -91,6 +90,7 @@ M.tools = {
   "shellcheck",
   "tflint",
   "yamllint",
+  "mypy",
   "ruff",
   -- DAP
   "debugpy",
