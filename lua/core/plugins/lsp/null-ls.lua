@@ -4,18 +4,16 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 nls.setup({
   sources = {
     nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
-    -- nls.builtins.diagnostics.eslint_d,
-    -- nls.builtins.formatting.prettier.with({
-    --   extra_args = { "--single-quote", "false" },
-    -- }),
     nls.builtins.formatting.deno_fmt,
     nls.builtins.formatting.terraform_fmt,
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.gofumpt,
+    nls.builtins.diagnostics.mypy,
+    nls.builtins.diagnostics.ruff,
+    nls.builtins.formatting.ruff,
+    nls.builtins.formatting.shfmt,
     nls.builtins.code_actions.shellcheck,
     nls.builtins.code_actions.gitsigns,
-    nls.builtins.formatting.shfmt,
-    nls.builtins.diagnostics.mypy,
     nls.builtins.diagnostics.deadnix,
     nls.builtins.formatting.nixfmt,
     nls.builtins.formatting.rustfmt,

@@ -52,6 +52,7 @@ M.treesitter_ensure_installed = {
   "query",
   "python",
   "regex",
+  "rust",
   "terraform",
   "toml",
   "vim",
@@ -61,7 +62,6 @@ M.treesitter_ensure_installed = {
   "fennel",
   "haskell",
   "nix",
-  "rust",
 }
 
 -- LSPs that should be installed by Mason-lspconfig
@@ -76,17 +76,14 @@ M.lsp_servers = {
   "clojure_lsp",
   "denols",
   "nil_ls",
-  "ruff_lsp",
 }
 
 -- Tools that should be installed by Mason
 M.tools = {
   -- Formatter
-  "prettier",
   "stylua",
   "shfmt",
   -- Linter
-  "eslint_d",
   "shellcheck",
   "tflint",
   "yamllint",
