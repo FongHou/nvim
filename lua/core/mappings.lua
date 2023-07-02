@@ -32,6 +32,9 @@ end)
 -- save like your are used to
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- search and replace is a pain with a German keyboard layout
+map({ "v", "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
+
 -- toggles
 map("n", "<leader>th", function()
   utils.notify("Toggling hidden chars", vim.log.levels.INFO, "core.mappings")
