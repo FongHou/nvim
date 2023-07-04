@@ -3,7 +3,6 @@ local M = {
   dependencies = {
     "akinsho/nvim-toggleterm.lua",
     "mtikekar/nvim-send-to-term",
-    "fonghou/tmuxjump.vim",
   },
 }
 
