@@ -44,8 +44,8 @@ local M = {
     { "<leader>mm", "<cmd>Telescope make<cr>", desc = "Run make" },
     { "<leader>mt", "<cmd>Telescope<cr>", desc = "Telescope" },
     -- Other
-    { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
     { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Buffer list" },
+    { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
     { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
   },
   config = function()
@@ -180,7 +180,6 @@ local M = {
     })
 
     telescope.load_extension("manix")
-    telescope.load_extension("fzf")
     telescope.load_extension("projects")
     telescope.load_extension("zoxide")
     telescope.load_extension("heading")
@@ -189,6 +188,7 @@ local M = {
     if settings.enable_noice then
       telescope.load_extension("noice")
     end
+    telescope.load_extension("fzf")
   end,
 }
 

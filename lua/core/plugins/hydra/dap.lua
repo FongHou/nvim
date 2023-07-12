@@ -5,7 +5,7 @@ local hint = [[
  _n_: step over   _s_: Continue/Start   _b_: Breakpoint
  _i_: step into   _x_: Disconnect       _K_: Hover Variables
  _o_: step out    _X_: Quit             _E_: Evaluate
- _c_: to cursor   _r_: Toggle Repl      _U_: Toggle UI
+ _c_: to cursor   _r_: Toggle Repl      _t_: Toggle UI
  ^
  ^ ^              _q_: exit
 ]]
@@ -24,7 +24,7 @@ local dap_hydra = Hydra({
   mode = { "n", "x" },
   body = "<leader>d",
   heads = {
-    { "U", "<cmd>lua require('dapui').toggle()<cr>:DapVirtualTextForceRefresh<cr>", { silent = true } },
+    { "t", "<cmd>lua require('dapui').toggle()<cr>:DapVirtualTextForceRefresh<cr>", { silent = true } },
     { "E", "<cmd>lua require('dapui').eval()<cr>", { silent = true } },
     { "K", "<cmd>lua require('dap.ui.widgets').hover()<cr>", { silent = true } },
     { "X", dap.close, { silent = true } },
