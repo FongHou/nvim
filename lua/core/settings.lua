@@ -68,6 +68,7 @@ M.treesitter_ensure_installed = {
 M.lsp_servers = {
   "jsonls",
   "gopls",
+  "nil_ls",
   "pyright",
   "lua_ls",
   "terraformls",
@@ -75,7 +76,6 @@ M.lsp_servers = {
   "clangd",
   "clojure_lsp",
   "denols",
-  "nil_ls",
 }
 
 -- Tools that should be installed by Mason
